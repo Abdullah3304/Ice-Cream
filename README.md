@@ -1,6 +1,6 @@
-# XYZ Ice Cream — Next.js
+# Malacia Ice Cream — React
 
-Introductory ice cream brand website built with **Next.js 15**, **React 19**, and custom CSS (Chroma Swirl theme).
+Introductory ice cream brand website built with **Vite**, **React 19**, **React Router**, and plain CSS.
 
 ## Run locally
 
@@ -9,37 +9,34 @@ npm install
 npm run dev
 ```
 
-Open **http://localhost:3000**
-
-## Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Production build |
-| `npm run start` | Run production server |
+Open **http://localhost:5173**
 
 ## Project structure
 
+Each page owns its JSX and CSS. Shared layout (logo, navbar, footer) lives in `components/`.
+
 ```
 src/
-├── app/
-│   ├── layout.jsx       # Root layout + fonts
-│   ├── page.jsx         # Home (/)
-│   ├── about/page.jsx
-│   ├── products/page.jsx
-│   ├── contact/page.jsx
-│   └── globals.css      # Full theme styles
+├── main.jsx
+├── App.jsx
+├── pages/
+│   ├── Home.jsx + Home.css       ← all home styles & components
+│   ├── About.jsx + About.css
+│   ├── Products.jsx + Products.css
+│   └── Contact.jsx + Contact.css
 ├── components/
-└── data/products.js
-public/
-└── images/              # Product photos
+│   ├── Layout.jsx + Layout.css   ← global reset, ambient bg, back-to-top
+│   ├── BrandMark.jsx + BrandMark.css
+│   ├── Header.jsx + Header.css
+│   └── Footer.jsx + Footer.css
+└── data/
+    ├── brand.js
+    └── products.js
 ```
 
 ## Tech stack
 
-- Next.js 15 (App Router)
+- Vite 6
 - React 19
-- next/image for optimized images
-- next/font (Syne + DM Sans)
-- Plain CSS — no Tailwind
+- React Router 7
+- Plain CSS — no Tailwind, no shared base/components CSS files

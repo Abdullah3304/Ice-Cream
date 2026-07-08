@@ -1,8 +1,6 @@
-'use client';
-
 import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, useLocation } from 'react-router-dom';
+import './Header.css';
 
 const navItems = [
   { href: '/', label: 'Home', exact: true },
@@ -13,7 +11,7 @@ const navItems = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const { pathname } = useLocation();
 
   const isActive = (href, exact) => {
     if (exact) return pathname === href;
@@ -22,15 +20,7 @@ export default function Header() {
 
   return (
     <header className="site-header">
-      <div className="header-inner">
-        <Link href="/" className="brand" onClick={() => setMenuOpen(false)}>
-          <span className="brand__mark">✦</span>
-          <span className="brand__name">
-            XYZ
-            <span className="brand__tag">Ice Cream</span>
-          </span>
-        </Link>
-
+      <div className="header-inner header-inner--nav-only">
         <button
           type="button"
           className={`menu-toggle${menuOpen ? ' is-open' : ''}`}
@@ -47,7 +37,7 @@ export default function Header() {
             {navItems.map(({ href, label, exact }) => (
               <li key={href}>
                 <Link
-                  href={href}
+                  to={href}
                   className={isActive(href, exact) ? 'active' : undefined}
                   onClick={() => setMenuOpen(false)}
                 >
@@ -56,7 +46,7 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <Link href="/products" className="header-cta" onClick={() => setMenuOpen(false)}>
+          <Link to="/products" className="header-cta" onClick={() => setMenuOpen(false)}>
             Order a tub
           </Link>
         </nav>

@@ -1,19 +1,19 @@
-import Link from 'next/link';
-import { contactInfo, socialLinks } from '@/data/products';
+import { Link } from 'react-router-dom';
+import { brand } from '../data/brand';
+import { contactInfo, socialLinks } from '../data/products';
+import './Footer.css';
 
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-glow" aria-hidden="true" />
-      <div className="container footer-inner">
+      <div className="footer-container footer-inner">
         <div className="footer-brand">
-          <Link href="/" className="brand brand--footer">
-            <span className="brand__mark">✦</span>
-            <span className="brand__name">
-              XYZ
-              <span className="brand__tag">Ice Cream</span>
-            </span>
-          </Link>
+          {brand.useLogoImage ? (
+            <img src={brand.logo} alt={`${brand.name} ${brand.tagline}`} style={{ '--brand-logo': `${brand.logoSize}px` }} />
+          ) : (
+            <span>{brand.logoMark} {brand.name}</span>
+          )}
           <p className="footer-tagline">
             Small-batch dairy ice cream. Bold flavors. Zero shortcuts.
           </p>
@@ -23,10 +23,10 @@ export default function Footer() {
           <div>
             <h4>Explore</h4>
             <ul>
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/about">Our Story</Link></li>
-              <li><Link href="/products">Flavors</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">Our Story</Link></li>
+              <li><Link to="/products">Flavors</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
           <div>
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>&copy; {new Date().getFullYear()} XYZ Ice Cream</span>
+          <span>&copy; {new Date().getFullYear()} {brand.name} {brand.tagline}</span>
           <span className="footer-bottom__note">Crafted with cream, not compromise.</span>
         </div>
       </div>
