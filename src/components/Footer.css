@@ -74,9 +74,13 @@
   gap: 10px;
 }
 
-.social-row span {
+.social-row a {
   font-size: 0.92rem;
   color: var(--text-muted);
+}
+
+.social-row a:hover {
+  color: var(--text-primary);
 }
 
 .footer-bottom {

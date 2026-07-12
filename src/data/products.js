@@ -107,7 +107,7 @@ export const showcaseFlavors = [
 
 export const contactInfo = {
   address: 'Bhamba Kalan Tehsil, Kot Radha Kishan District, Kasur - Pakistan',
-  phone: '(042) 111-11-MAL (4426)',
+  phone: 'Number not available',
   email: 'usama999.tariq@gmail.com',
   hours: 'Mon – Sat · 9:00 AM – 6:00 PM',
 };
@@ -115,6 +115,9 @@ export const contactInfo = {
 export const socialLinks = {
   facebook: 'https://www.facebook.com/malaiceicecream',
   instagram: 'https://www.instagram.com/malaiceicecream/',
+  tiktok: 'https://www.tiktok.com/@malaiceicecream',
   linkedin: 'https://www.linkedin.com/company/malaice-ice-cream/',
-  whatsapp: 'https://api.whatsapp.com/send?phone=9242111114426',
+  /** Digits only, country code included (no +) */
+  whatsappPhone: '9242111114426',
+  whatsapp: 'https://wa.me/9242111114426',
 };

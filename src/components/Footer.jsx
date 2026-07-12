@@ -44,9 +44,9 @@ export default function Footer() {
           <div>
             <h4>Social</h4>
             <div className="social-row">
-              <span>Instagram</span>
-              <span>Facebook</span>
-              <span>TikTok</span>
+              <Link to="/coming-soon?from=Instagram">Instagram</Link>
+              <Link to="/coming-soon?from=Facebook">Facebook</Link>
+              <Link to="/coming-soon?from=TikTok">TikTok</Link>
             </div>
           </div>
         </div>

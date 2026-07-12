@@ -5,6 +5,7 @@ import Story from './pages/Story';
 import Products from './pages/Flavors';
 import Contact from './pages/Contact';
 import Order from './pages/Order';
+import ComingSoon from './pages/ComingSoon';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="products" element={<Products />} />
           <Route path="order" element={<Order />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="coming-soon" element={<ComingSoon />} />
           {/* Old paths → new paths */}
           <Route path="about" element={<Navigate to="/story" replace />} />
           <Route path="flavors" element={<Navigate to="/products" replace />} />

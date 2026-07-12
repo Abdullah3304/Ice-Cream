@@ -1,7 +1,94 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { brand } from '../data/brand';
 import { productCategories } from '../data/products';
 import './Flavors.css';
+
+const ALL_CATEGORIES = 'all';
+
+const categoryOptions = [
+  { value: ALL_CATEGORIES, label: 'All categories', color: 'var(--gradient-brand)' },
+  ...productCategories.map((category) => ({
+    value: category.name,
+    label: category.name,
+    color: category.color,
+  })),
+];
+
+function CategoryDropdown({ value, onChange }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+  const selected = categoryOptions.find((option) => option.value === value) ?? categoryOptions[0];
+
+  useEffect(() => {
+    if (!open) return undefined;
+
+    function onPointerDown(event) {
+      if (rootRef.current && !rootRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    }
+
+    function onKeyDown(event) {
+      if (event.key === 'Escape') setOpen(false);
+    }
+
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [open]);
+
+  return (
+    <div className={`flavor-filter__control${open ? ' is-open' : ''}`} ref={rootRef}>
+      <button
+        type="button"
+        id="product-category"
+        className="flavor-filter__trigger"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        <span
+          className={`flavor-filter__swatch${selected.value === ALL_CATEGORIES ? ' flavor-filter__swatch--all' : ''}`}
+          style={selected.value === ALL_CATEGORIES ? undefined : { background: selected.color }}
+          aria-hidden="true"
+        />
+        <span className="flavor-filter__value">{selected.label}</span>
+        <span className="flavor-filter__chevron" aria-hidden="true" />
+      </button>
+
+      {open && (
+        <ul className="flavor-filter__menu" role="listbox" aria-labelledby="product-category">
+          {categoryOptions.map((option) => {
+            const isActive = option.value === value;
+            return (
+              <li key={option.value} role="option" aria-selected={isActive}>
+                <button
+                  type="button"
+                  className={`flavor-filter__option${isActive ? ' is-active' : ''}`}
+                  onClick={() => {
+                    onChange(option.value);
+                    setOpen(false);
+                  }}
+                >
+                  <span
+                    className={`flavor-filter__swatch${option.value === ALL_CATEGORIES ? ' flavor-filter__swatch--all' : ''}`}
+                    style={option.value === ALL_CATEGORIES ? undefined : { background: option.color }}
+                    aria-hidden="true"
+                  />
+                  <span>{option.label}</span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
 
 function FamilyPackShowcase({ packs, color }) {
   return (
@@ -43,8 +130,15 @@ function gridClass(name) {
 }
 
 export default function Products() {
+  const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES);
+
+  const visibleCategories = useMemo(() => {
+    if (selectedCategory === ALL_CATEGORIES) return productCategories;
+    return productCategories.filter((category) => category.name === selectedCategory);
+  }, [selectedCategory]);
+
   useEffect(() => {
-    document.title = 'Flavors —  Ice Cream';
+    document.title = `Products — ${brand.name} ${brand.tagline}`;
   }, []);
 
   return (
@@ -72,7 +166,14 @@ export default function Products() {
 
       <section className="flavor-catalog">
         <div className="container">
-          {productCategories.map((category, catIndex) => (
+          <div className="flavor-filter">
+            <span className="flavor-filter__label" id="product-category-label">
+              Category
+            </span>
+            <CategoryDropdown value={selectedCategory} onChange={setSelectedCategory} />
+          </div>
+
+          {visibleCategories.map((category, catIndex) => (
             <div className={`flavor-section${sectionClass(category.name)}`} key={category.name}>
               <div className="flavor-section__head">
                 <span className="flavor-section__swatch" style={{ background: category.color }} />

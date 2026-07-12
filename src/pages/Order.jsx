@@ -1,76 +1,50 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { brand } from '../data/brand';
-import { contactInfo, productCategories, socialLinks } from '../data/products';
+import { contactInfo } from '../data/products';
 import './Order.css';
 
-function buildOrderCategories() {
-  const categories = [];
+const tubs = [
+  {
+    id: 'party',
+    size: '9.5 L',
+    label: 'The Big Bang',
+    vibe: 'Party-size for the whole block',
+    image: '/images/products/9.4 liter.webp',
+    accent: '#ff6b9d',
+  },
+  {
+    id: 'family',
+    size: '4.5 L',
+    label: 'The Bang',
+    vibe: 'Family nights, freezer-ready',
+    image: '/images/products/4.5 liter.webp',
+    accent: '#ffb347',
+  },
+  {
+    id: 'bar',
+    size: '750 ml',
+    label: 'Bar Pack',
+    vibe: 'Scoop-ready bars for every craving',
+    image: '/images/products/750ML Bar/Mango.webp',
+    accent: '#67e8f9',
+  },
+];
 
-  for (const category of productCategories) {
-    if (category.type === 'packs' && category.packs) {
-      category.packs.forEach((pack, index) => {
-        categories.push({
-          id: `pack-${index}`,
-          size: index === 0 ? '9.5 L' : '4.5 L',
-          label: pack.title.replace(/:$/, ''),
-          vibe: 'Party-size tub for every celebration',
-          accent: category.color,
-          image: pack.image,
-          flavors: [{ name: pack.title.replace(/:$/, ''), image: pack.image }],
-        });
-      });
-      continue;
-    }
-
-    if (!category.products?.length) continue;
-
-    categories.push({
-      id: category.name.toLowerCase().replace(/\s+/g, '-'),
-      size: category.tag,
-      label: category.name,
-      vibe: `${category.products.length} flavors ready to order`,
-      accent: category.color,
-      image: category.products[0].image,
-      flavors: category.products,
-    });
-  }
-
-  return categories;
-}
-
-const orderCategories = buildOrderCategories();
-
-function whatsappOrderUrl(category, flavorName) {
-  const text = encodeURIComponent(
-    `Hi ${brand.name}! I'd like to order ${category.label}` +
-      (flavorName ? ` — ${flavorName}` : '') +
-      '.',
-  );
-  return `${socialLinks.whatsapp}&text=${text}`;
-}
+const spotlightFlavors = [
+  { name: 'Praline', image: '/images/products/750ML Bar/Praline.webp' },
+  { name: 'Chocolate', image: '/images/products/750ML Bar/Chocolate.webp' },
+  { name: 'Vanilla', image: '/images/products/750ML Bar/Vanilla.webp' },
+  { name: 'Pistachio', image: '/images/products/750ML Bar/Pistachio.webp' },
+];
 
 export default function Order() {
-  const [activeCategory, setActiveCategory] = useState(orderCategories[0]);
-  const [flavorName, setFlavorName] = useState(orderCategories[0].flavors[0].name);
-
-  const activeFlavor = useMemo(
-    () =>
-      activeCategory.flavors.find((item) => item.name === flavorName) ??
-      activeCategory.flavors[0],
-    [activeCategory, flavorName],
-  );
-
-  const orbitFlavors = activeCategory.flavors.slice(0, 4);
+  const [activeTub, setActiveTub] = useState(tubs[0]);
+  const [flavor, setFlavor] = useState(spotlightFlavors[0].name);
 
   useEffect(() => {
     document.title = `Order a Tub — ${brand.name} ${brand.tagline}`;
   }, []);
-
-  function selectCategory(category) {
-    setActiveCategory(category);
-    setFlavorName(category.flavors[0].name);
-  }
 
   return (
     <div className="order-page">
@@ -92,17 +66,12 @@ export default function Order() {
               <span className="text-gradient"> just called</span>
             </h1>
             <p className="order-scene__lead">
-              {activeCategory.label} — {activeCategory.vibe}. Pick a flavor below and we&apos;ll get it chilled your way.
+              Pick a tub size, name a flavor, and we&apos;ll get it chilled your way.
             </p>
             <div className="order-scene__actions">
-              <a
-                className="btn btn--glow"
-                href={whatsappOrderUrl(activeCategory, activeFlavor.name)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link to="/coming-soon?from=WhatsApp%20ordering" className="btn btn--glow">
                 Order on WhatsApp
-              </a>
+              </Link>
               <Link to="/contact" className="btn btn--ghost">
                 Send a request
               </Link>
@@ -112,20 +81,20 @@ export default function Order() {
           <div className="order-scene__visual" aria-hidden="true">
             <div
               className="order-scene__glow"
-              style={{ '--tub-accent': activeCategory.accent }}
+              style={{ '--tub-accent': activeTub.accent }}
             />
             <img
-              key={activeFlavor.image}
-              src={activeFlavor.image}
+              key={activeTub.id}
+              src={activeTub.image}
               alt=""
               className="order-scene__tub"
               loading="eager"
               decoding="async"
             />
             <div className="order-scene__orbit">
-              {orbitFlavors.map((item, i) => (
+              {spotlightFlavors.map((item, i) => (
                 <img
-                  key={`${activeCategory.id}-${item.name}`}
+                  key={item.name}
                   src={item.image}
                   alt=""
                   className={`order-scene__orbit-item order-scene__orbit-item--${i + 1}`}
@@ -141,51 +110,52 @@ export default function Order() {
       <section className="order-picker">
         <div className="container">
           <div className="order-picker__head">
-            <h2>Choose your line</h2>
-            <p>Select a category — flavors below update to match.</p>
+            <h2>Choose your tub</h2>
+            <p>One tap switches the scene — find the size that fits the moment.</p>
           </div>
 
           <div className="order-picker__sizes" role="list">
-            {orderCategories.map((category) => {
-              const selected = category.id === activeCategory.id;
+            {tubs.map((tub) => {
+              const selected = tub.id === activeTub.id;
               return (
                 <button
-                  key={category.id}
+                  key={tub.id}
                   type="button"
                   role="listitem"
                   className={`order-size${selected ? ' is-selected' : ''}`}
-                  style={{ '--tub-accent': category.accent }}
+                  style={{ '--tub-accent': tub.accent }}
                   aria-pressed={selected}
-                  onClick={() => selectCategory(category)}
+                  onClick={() => setActiveTub(tub)}
                 >
-                  <span className="order-size__size">{category.size}</span>
-                  <span className="order-size__label">{category.label}</span>
-                  <span className="order-size__vibe">{category.vibe}</span>
+                  <span className="order-size__size">{tub.size}</span>
+                  <span className="order-size__label">{tub.label}</span>
+                  <span className="order-size__vibe">{tub.vibe}</span>
                 </button>
               );
             })}
           </div>
 
           <div className="order-picker__flavors">
-            <p className="order-picker__flavors-label">
-              {activeCategory.label} flavors
-            </p>
+            <p className="order-picker__flavors-label">Flavor mood</p>
             <div className="order-flavor-row">
-              {activeCategory.flavors.map((item) => {
-                const selected = item.name === activeFlavor.name;
+              {spotlightFlavors.map((item) => {
+                const selected = item.name === flavor;
                 return (
                   <button
                     key={item.name}
                     type="button"
                     className={`order-flavor${selected ? ' is-selected' : ''}`}
                     aria-pressed={selected}
-                    onClick={() => setFlavorName(item.name)}
+                    onClick={() => setFlavor(item.name)}
                   >
                     <img src={item.image} alt="" loading="lazy" decoding="async" />
-                    <span>{item.name.replace(/^Malaice\s+/i, '')}</span>
+                    <span>{item.name}</span>
                   </button>
                 );
               })}
+              <Link to="/products" className="order-flavor order-flavor--more">
+                <span>See all</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -199,7 +169,7 @@ export default function Order() {
               Ready when you are
             </p>
             <h2>
-              {activeCategory.label} · {activeFlavor.name.replace(/^Malaice\s+/i, '')}
+              {activeTub.size} · {flavor}
             </h2>
             <p>
               Call {contactInfo.phone} or message us on WhatsApp — we&apos;ll confirm
@@ -207,14 +177,9 @@ export default function Order() {
             </p>
           </div>
           <div className="order-confirm__actions">
-            <a
-              className="btn btn--glow"
-              href={whatsappOrderUrl(activeCategory, activeFlavor.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link to="/coming-soon?from=WhatsApp%20ordering" className="btn btn--glow">
               Confirm on WhatsApp
-            </a>
+            </Link>
             <a className="btn btn--ghost" href={`tel:${contactInfo.phone.replace(/[^\d+]/g, '')}`}>
               Call the desk
             </a>
