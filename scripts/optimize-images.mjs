@@ -38,6 +38,13 @@ let converted = 0;
 
 for (const file of files) {
   const ext = path.extname(file);
+  const base = path.basename(file).toLowerCase();
+
+  // Keep the brand logo as the original uploaded PNG — do not recompress.
+  if (base.startsWith('main-logo')) {
+    console.log(`Skipped (brand logo): ${path.relative(ROOT, file)}`);
+    continue;
+  }
   const out = file.slice(0, -ext.length) + '.webp';
   const inputStat = await fs.stat(file);
   before += inputStat.size;

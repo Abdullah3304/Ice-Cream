@@ -154,7 +154,7 @@ export default function Home() {
             </p>
             <div className="hero__actions">
               <Link to="/products" className="btn btn--glow">Explore flavors</Link>
-              <Link to="/about" className="btn btn--ghost">Our story</Link>
+              <Link to="/story" className="btn btn--ghost">Our story</Link>
             </div>
           </div>
           <HeroVisual />

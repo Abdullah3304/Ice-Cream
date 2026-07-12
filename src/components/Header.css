@@ -75,6 +75,10 @@
   box-shadow: 0 4px 20px rgba(255, 107, 157, 0.35);
 }
 
+.header-cta.is-active {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25), 0 4px 20px rgba(255, 107, 157, 0.35);
+}
+
 .menu-toggle {
   display: none;
   width: 44px;

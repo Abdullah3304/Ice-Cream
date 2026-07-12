@@ -1,0 +1,383 @@
+/* Order page — scenic tub picker */
+
+.container {
+  width: min(var(--max-w), 100% - 40px);
+  margin-inline: auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow__line {
+  width: 32px;
+  height: 1px;
+  background: var(--gradient-brand);
+}
+
+.text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
+}
+
+.btn--glow {
+  color: var(--bg-deep);
+  background: var(--gradient-brand);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(192, 132, 252, 0.4);
+}
+
+.btn--ghost {
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border-glass);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+/* —— Scene hero —— */
+.order-scene {
+  position: relative;
+  min-height: min(92vh, 860px);
+  display: flex;
+  align-items: center;
+  padding: 100px 0 72px;
+  overflow: hidden;
+}
+
+.order-scene__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.order-scene__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  transform: scale(1.04);
+  animation: order-bg-drift 18s ease-in-out infinite alternate;
+}
+
+.order-scene__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, var(--bg-deep) 0%, rgba(7, 6, 13, 0.72) 42%, rgba(7, 6, 13, 0.35) 100%),
+    radial-gradient(ellipse 60% 50% at 75% 45%, rgba(255, 107, 157, 0.18), transparent 70%);
+}
+
+.order-scene__frost {
+  position: absolute;
+  inset: auto 0 0;
+  height: 35%;
+  background: linear-gradient(180deg, transparent, var(--bg-deep));
+  pointer-events: none;
+}
+
+.order-scene__stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.order-scene__lead {
+  max-width: 420px;
+  font-size: 1.12rem;
+  margin-bottom: 1.75rem;
+}
+
+.order-scene__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.order-scene__visual {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+}
+
+.order-scene__glow {
+  position: absolute;
+  width: min(420px, 80%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--tub-accent) 45%, transparent), transparent 68%);
+  filter: blur(8px);
+  animation: order-pulse 4.5s ease-in-out infinite;
+}
+
+.order-scene__tub {
+  position: relative;
+  z-index: 2;
+  width: min(420px, 88%);
+  max-height: 380px;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.45));
+  animation: order-tub-in 0.55s var(--ease-out) both;
+}
+
+.order-scene__orbit {
+  position: absolute;
+  inset: 8% 4%;
+  pointer-events: none;
+}
+
+.order-scene__orbit-item {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.4));
+  animation: order-float 5.5s ease-in-out infinite;
+}
+
+.order-scene__orbit-item--1 { top: 6%; left: 4%; animation-delay: 0s; }
+.order-scene__orbit-item--2 { top: 10%; right: 2%; animation-delay: 0.8s; width: 64px; height: 64px; }
+.order-scene__orbit-item--3 { bottom: 14%; left: 0; animation-delay: 1.4s; width: 68px; height: 68px; }
+.order-scene__orbit-item--4 { bottom: 8%; right: 6%; animation-delay: 2s; width: 76px; height: 76px; }
+
+/* —— Size picker —— */
+.order-picker {
+  padding: 24px 0 72px;
+}
+
+.order-picker__head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.order-picker__head p {
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+.order-picker__sizes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.order-size {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 24px 22px;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  transition:
+    border-color 0.3s var(--ease-out),
+    background 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
+}
+
+.order-size:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--tub-accent) 50%, var(--border-glass));
+}
+
+.order-size.is-selected {
+  background: color-mix(in srgb, var(--tub-accent) 12%, transparent);
+  border-color: color-mix(in srgb, var(--tub-accent) 65%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--tub-accent) 25%, transparent);
+}
+
+.order-size__size {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--tub-accent);
+}
+
+.order-size__label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.order-size__vibe {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}
+
+.order-picker__flavors-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 14px;
+}
+
+.order-flavor-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.order-flavor {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-glass);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s, color 0.25s, transform 0.25s;
+}
+
+.order-flavor img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.order-flavor:hover,
+.order-flavor.is-selected {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+}
+
+/* —— Confirm —— */
+.order-confirm {
+  margin: 0 20px 80px;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-panel);
+  border: 1px solid var(--border-glass);
+  overflow: hidden;
+  position: relative;
+}
+
+.order-confirm::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(255, 107, 157, 0.16), transparent 55%),
+    radial-gradient(ellipse at 85% 40%, rgba(103, 232, 249, 0.12), transparent 50%);
+  pointer-events: none;
+}
+
+.order-confirm__inner {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 48px 8px;
+}
+
+.order-confirm__inner h2 { margin-bottom: 0.5rem; }
+
+.order-confirm__inner p:last-child { margin-bottom: 0; max-width: 480px; }
+
+.order-confirm__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@keyframes order-tub-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes order-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes order-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+@keyframes order-bg-drift {
+  from { transform: scale(1.04) translateY(0); }
+  to { transform: scale(1.08) translateY(-1.5%); }
+}
+
+@media (max-width: 960px) {
+  .order-scene {
+    min-height: auto;
+    padding: 88px 0 48px;
+  }
+
+  .order-scene__stage {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .order-scene__lead { margin-inline: auto; }
+
+  .order-scene__actions { justify-content: center; }
+
+  .order-scene__visual { min-height: 340px; }
+
+  .order-confirm__inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .order-confirm__actions { justify-content: center; }
+}
+
+@media (max-width: 560px) {
+  .order-scene__orbit-item { width: 52px; height: 52px; }
+  .order-flavor-row { justify-content: center; }
+}

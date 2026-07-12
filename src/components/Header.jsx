@@ -4,8 +4,8 @@ import './Header.css';
 
 const navItems = [
   { href: '/', label: 'Home', exact: true },
-  { href: '/about', label: 'Story' },
-  { href: '/products', label: 'Flavors' },
+  { href: '/story', label: 'Story' },
+  { href: '/products', label: 'Products' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -46,7 +46,11 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <Link to="/products" className="header-cta" onClick={() => setMenuOpen(false)}>
+          <Link
+            to="/order"
+            className={`header-cta${pathname.startsWith('/order') ? ' is-active' : ''}`}
+            onClick={() => setMenuOpen(false)}
+          >
             Order a tub
           </Link>
         </nav>

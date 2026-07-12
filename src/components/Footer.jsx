@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { brand } from '../data/brand';
-import { contactInfo, socialLinks } from '../data/products';
+import { contactInfo } from '../data/products';
 import './Footer.css';
 
 export default function Footer() {
@@ -30,8 +30,8 @@ export default function Footer() {
             <h4>Explore</h4>
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">Our Story</Link></li>
-              <li><Link to="/products">Flavors</Link></li>
+              <li><Link to="/story">Our Story</Link></li>
+              <li><Link to="/products">Products</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
@@ -44,9 +44,9 @@ export default function Footer() {
           <div>
             <h4>Social</h4>
             <div className="social-row">
-              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
-              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <span>Instagram</span>
+              <span>Facebook</span>
+              <span>TikTok</span>
             </div>
           </div>
         </div>

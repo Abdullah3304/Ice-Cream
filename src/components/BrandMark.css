@@ -14,10 +14,9 @@
 .brand-mark__fallback {
   width: var(--brand-logo);
   height: var(--brand-logo);
-  object-fit: contain;
+  object-fit: cover;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-glass);
-  background: color-mix(in srgb, var(--bg-card) 80%, transparent);
 }
 
 .brand-mark__fallback {
