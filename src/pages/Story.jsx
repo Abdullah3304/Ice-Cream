@@ -8,10 +8,10 @@ const milestones = [
 ];
 
 const gallery = [
-  { src: '/images/products/Lids/Malaice Belgian Chocolate Lid.png', alt: 'Malaice Belgian Chocolate Lid' },
-  { src: '/images/products/Popsicles/salted caramel.png', alt: 'Salted Caramel Popsicle' },
-  { src: '/images/products/Lollies/strawberry.png', alt: 'Malaice Strawberry ICE Lolly' },
-  { src: '/images/products/Lids/Malaice Lotus Crumble Lid.png', alt: 'Malaice Lotus Crumble Lid' },
+  { src: '/images/products/Lids/Malaice Belgian Chocolate Lid.webp', alt: 'Malaice Belgian Chocolate Lid', variant: 'lid' },
+  { src: '/images/products/Popsicles/salted caramel.webp', alt: 'Salted Caramel Popsicle', variant: 'label' },
+  { src: '/images/products/Lollies/strawberry.webp', alt: 'Malaice Strawberry ICE Lolly', variant: 'label' },
+  { src: '/images/products/Lids/Malaice Lotus Crumble Lid.webp', alt: 'Malaice Lotus Crumble Lid', variant: 'lid' },
 ];
 
 export default function About() {
@@ -42,8 +42,13 @@ export default function About() {
       <section className="about-gallery">
         <div className="container about-gallery__grid">
           {gallery.map((item, i) => (
-            <div className={`about-gallery__item about-gallery__item--${i + 1}`} key={item.alt}>
-              <img src={item.src} alt={item.alt} />
+            <div
+              className={`about-gallery__item about-gallery__item--${i + 1} about-gallery__item--${item.variant}`}
+              key={item.alt}
+            >
+              <div className="about-gallery__frame">
+                <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+              </div>
             </div>
           ))}
         </div>

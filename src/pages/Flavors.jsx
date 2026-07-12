@@ -10,7 +10,13 @@ function FamilyPackShowcase({ packs, color }) {
         <article key={pack.title} className="pack-showcase__card" style={{ '--pack-color': color }}>
           <h3 className="pack-showcase__title">{pack.title}</h3>
           <div className="pack-showcase__img-wrap">
-            <img src={pack.image} alt={pack.title} className="pack-showcase__img" />
+            <img
+              src={pack.image}
+              alt={pack.title}
+              className="pack-showcase__img"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </article>
       ))}
@@ -45,7 +51,7 @@ export default function Products() {
     <>
       <section className="page-hero page-hero--products">
         <div className="page-hero__bg">
-          <img src="/images/products/indulge-02.png" alt="" />
+          <img src="/images/hero.webp" alt="" loading="lazy" decoding="async" />
         </div>
         <div className="container">
           <p className="eyebrow">
@@ -93,7 +99,13 @@ export default function Products() {
                       }}
                     >
                       <div className="flavor-card__img-wrap">
-                        <img src={product.image} alt={product.name} className="flavor-card__img" />
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="flavor-card__img"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </div>
                       <div className="flavor-card__body">
                         <span className="flavor-card__tag">{category.tag}</span>

@@ -10,7 +10,13 @@ export default function Footer() {
       <div className="footer-container footer-inner">
         <div className="footer-brand">
           {brand.useLogoImage ? (
-            <img src={brand.logo} alt={`${brand.name} ${brand.tagline}`} style={{ '--brand-logo': `${brand.logoSize}px` }} />
+            <img
+              src={brand.logo}
+              alt={`${brand.name} ${brand.tagline}`}
+              style={{ '--brand-logo': `${brand.logoSize}px` }}
+              loading="lazy"
+              decoding="async"
+            />
           ) : (
             <span>{brand.logoMark} {brand.name}</span>
           )}

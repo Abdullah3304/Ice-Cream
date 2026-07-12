@@ -11,7 +11,15 @@ export default function BrandMark() {
       aria-label={`${brand.name} ${brand.tagline}`}
     >
       {brand.useLogoImage ? (
-        <img src={brand.logo} alt="" width={size} height={size} />
+        <img
+          src={brand.logo}
+          alt=""
+          width={size}
+          height={size}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+        />
       ) : (
         <span className="brand-mark__fallback">{brand.logoMark}</span>
       )}

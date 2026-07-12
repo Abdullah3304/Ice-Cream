@@ -28,17 +28,17 @@ function ScoopStack() {
 const heroRingProducts = [
   {
     name: 'Praline',
-    image: '/images/products/750ML Bar/Praline.png',
+    image: '/images/products/750ML Bar/Praline.webp',
     className: 'hero__ring-item--1',
   },
   {
     name: 'Mango',
-    image: '/images/products/750ML Bar/Mango.png',
+    image: '/images/products/750ML Bar/Mango.webp',
     className: 'hero__ring-item--2',
   },
   {
     name: 'Chocolate',
-    image: '/images/products/750ML Bar/Chocolate.png',
+    image: '/images/products/750ML Bar/Chocolate.webp',
     className: 'hero__ring-item--3',
   },
 ];
@@ -53,6 +53,9 @@ function HeroVisual() {
             src={product.image}
             alt={` ${product.name}`}
             className={`hero__ring-item ${product.className}`}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
           />
         ))}
       </div>
@@ -71,28 +74,28 @@ const highlights = [
     title: 'Pure dairy only',
     text: 'Fresh cream and milk. No vegetable oils. No fillers. Just honest ingredients.',
     accent: 'var(--flavor-strawberry)',
-    image: '/images/products/750ML Bar/Vanilla.png',
+    image: '/images/products/750ML Bar/Vanilla.webp',
   },
   {
     num: '02',
     title: '13+ wild flavors',
     text: 'From nostalgic kulfa to indulgent fudge — every scoop tells a different story.',
     accent: 'var(--flavor-mango)',
-    image: '/images/products/Kulfi/badamii.png',
+    image: '/images/products/Kulfi/badamii.webp',
   },
   {
     num: '03',
     title: 'Three tub sizes',
     text: 'Family 4.5ml · Party 9.4ml. Built for solo nights and big celebrations.',
     accent: 'var(--flavor-mint)',
-    image: '/images/products/9.4 liter.png',
+    image: '/images/products/9.4 liter.webp',
   },
   {
     num: '04',
     title: 'Nationwide love',
     text: 'Found in 10,000+ stores. Chilled from factory to freezer, every single time.',
     accent: 'var(--flavor-lavender)',
-    image: '/images/products/750ML Bar/Mango.png',
+    image: '/images/products/750ML Bar/Mango.webp',
   },
 ];
 
@@ -175,7 +178,7 @@ export default function Home() {
                 <div className="bento__card-top">
                   <span className="bento__num">{item.num}</span>
                   <div className="bento__thumb">
-                    <img src={item.image} alt="" />
+                    <img src={item.image} alt="" loading="lazy" decoding="async" />
                   </div>
                 </div>
                 <h3>{item.title}</h3>
@@ -206,7 +209,7 @@ export default function Home() {
             {showcaseFlavors.map((flavor) => (
               <figure className={`float-card ${flavor.className}`} key={flavor.name}>
                 <div className="float-card__frame">
-                  <img src={flavor.image} alt={flavor.name} />
+                  <img src={flavor.image} alt={flavor.name} loading="lazy" decoding="async" />
                 </div>
                 <figcaption>{flavor.name}</figcaption>
               </figure>

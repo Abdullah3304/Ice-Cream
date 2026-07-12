@@ -1,4 +1,4 @@
-# Malacia Ice Cream — React
+# Malaice Ice Cream — React
 
 Introductory ice cream brand website built with **Vite**, **React 19**, **React Router**, and plain CSS.
 
@@ -34,9 +34,14 @@ src/
     └── products.js
 ```
 
-## Tech stack
+## Image assets
 
-- Vite 6
-- React 19
-- React Router 7
-- Plain CSS — no Tailwind, no shared base/components CSS files
+Product photos live in `public/images` as compressed **WebP**.
+
+To re-compress new PNG/JPG uploads later:
+
+```bash
+npm run optimize-images
+```
+
+This converts them to WebP, resizes for web display, and removes the heavy originals.

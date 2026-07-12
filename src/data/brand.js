@@ -2,7 +2,7 @@
 export const brand = {
   name: 'Malacia',
   tagline: 'Ice Cream',
-  logo: '/images/main-logo.png',
+  logo: '/images/main-logo.webp',
   useLogoImage: true,
   logoMark: '✦',
   /** Logo width & height in px — only place to change size */
