@@ -108,7 +108,7 @@ export const showcaseFlavors = [
 export const contactInfo = {
   address: 'Bhamba Kalan Tehsil, Kot Radha Kishan District, Kasur - Pakistan',
   phone: '(042) 111-11-MAL (4426)',
-  email: 'abdullahtariq73@gmail.com',
+  email: 'usama999.tariq@gmail.com',
   hours: 'Mon – Sat · 9:00 AM – 6:00 PM',
 };
 
