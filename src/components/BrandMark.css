@@ -17,6 +17,7 @@
   object-fit: cover;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-card);
 }
 
 .brand-mark__fallback {
@@ -24,7 +25,7 @@
   place-items: center;
   font-size: 2rem;
   background: var(--gradient-brand);
-  color: var(--bg-deep);
+  color: #FFFFFF;
 }
 
 .brand-mark strong {

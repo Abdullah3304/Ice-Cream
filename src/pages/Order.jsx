@@ -1,8 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { brand } from '../data/brand';
-import { contactInfo } from '../data/products';
+import { contactInfo, productCategories } from '../data/products';
 import './Order.css';
+
+const barFlavors =
+  productCategories.find((category) => category.name === '750ML Bar Pack')?.products ?? [];
+
+const familyPacks =
+  productCategories.find((category) => category.name === 'Pro Family Pack')?.packs ?? [];
 
 const tubs = [
   {
@@ -10,41 +16,51 @@ const tubs = [
     size: '9.5 L',
     label: 'The Big Bang',
     vibe: 'Party-size for the whole block',
-    image: '/images/products/9.4 liter.webp',
-    accent: '#ff6b9d',
+    image: familyPacks[0]?.image ?? '/images/products/9.4 liter.webp',
+    accent: '#FF5A8A',
+    flavors: barFlavors,
   },
   {
     id: 'family',
     size: '4.5 L',
     label: 'The Bang',
     vibe: 'Family nights, freezer-ready',
-    image: '/images/products/4.5 liter.webp',
-    accent: '#ffb347',
+    image: familyPacks[1]?.image ?? '/images/products/4.5 liter.webp',
+    accent: '#FFB347',
+    flavors: barFlavors,
   },
   {
     id: 'bar',
     size: '750 ml',
     label: 'Bar Pack',
-    vibe: 'Scoop-ready bars for every craving',
-    image: '/images/products/750ML Bar/Mango.webp',
-    accent: '#67e8f9',
+    vibe: `${barFlavors.length} flavors ready to order`,
+    image: barFlavors[0]?.image ?? '/images/products/750ML Bar/Mango.webp',
+    accent: '#8ED8FF',
+    flavors: barFlavors,
   },
-];
-
-const spotlightFlavors = [
-  { name: 'Praline', image: '/images/products/750ML Bar/Praline.webp' },
-  { name: 'Chocolate', image: '/images/products/750ML Bar/Chocolate.webp' },
-  { name: 'Vanilla', image: '/images/products/750ML Bar/Vanilla.webp' },
-  { name: 'Pistachio', image: '/images/products/750ML Bar/Pistachio.webp' },
 ];
 
 export default function Order() {
   const [activeTub, setActiveTub] = useState(tubs[0]);
-  const [flavor, setFlavor] = useState(spotlightFlavors[0].name);
+  const [flavorName, setFlavorName] = useState(tubs[0].flavors[0]?.name ?? '');
+
+  const activeFlavor = useMemo(
+    () =>
+      activeTub.flavors.find((item) => item.name === flavorName) ??
+      activeTub.flavors[0],
+    [activeTub, flavorName],
+  );
+
+  const orbitFlavors = activeTub.flavors.slice(0, 4);
 
   useEffect(() => {
     document.title = `Order a Tub — ${brand.name} ${brand.tagline}`;
   }, []);
+
+  function selectTub(tub) {
+    setActiveTub(tub);
+    setFlavorName(tub.flavors[0]?.name ?? '');
+  }
 
   return (
     <div className="order-page">
@@ -66,7 +82,7 @@ export default function Order() {
               <span className="text-gradient"> just called</span>
             </h1>
             <p className="order-scene__lead">
-              Pick a tub size, name a flavor, and we&apos;ll get it chilled your way.
+              {activeTub.size} {activeTub.label} — pick any flavor below and we&apos;ll get it chilled your way.
             </p>
             <div className="order-scene__actions">
               <Link to="/coming-soon?from=WhatsApp%20ordering" className="btn btn--glow">
@@ -84,17 +100,17 @@ export default function Order() {
               style={{ '--tub-accent': activeTub.accent }}
             />
             <img
-              key={activeTub.id}
-              src={activeTub.image}
+              key={activeFlavor?.image ?? activeTub.id}
+              src={activeFlavor?.image ?? activeTub.image}
               alt=""
               className="order-scene__tub"
               loading="eager"
               decoding="async"
             />
             <div className="order-scene__orbit">
-              {spotlightFlavors.map((item, i) => (
+              {orbitFlavors.map((item, i) => (
                 <img
-                  key={item.name}
+                  key={`${activeTub.id}-${item.name}`}
                   src={item.image}
                   alt=""
                   className={`order-scene__orbit-item order-scene__orbit-item--${i + 1}`}
@@ -111,7 +127,7 @@ export default function Order() {
         <div className="container">
           <div className="order-picker__head">
             <h2>Choose your tub</h2>
-            <p>One tap switches the scene — find the size that fits the moment.</p>
+            <p>Select 9.5 L, 4.5 L, or 750 ml — flavors below update to match.</p>
           </div>
 
           <div className="order-picker__sizes" role="list">
@@ -125,7 +141,7 @@ export default function Order() {
                   className={`order-size${selected ? ' is-selected' : ''}`}
                   style={{ '--tub-accent': tub.accent }}
                   aria-pressed={selected}
-                  onClick={() => setActiveTub(tub)}
+                  onClick={() => selectTub(tub)}
                 >
                   <span className="order-size__size">{tub.size}</span>
                   <span className="order-size__label">{tub.label}</span>
@@ -136,26 +152,25 @@ export default function Order() {
           </div>
 
           <div className="order-picker__flavors">
-            <p className="order-picker__flavors-label">Flavor mood</p>
+            <p className="order-picker__flavors-label">
+              {activeTub.size} flavors
+            </p>
             <div className="order-flavor-row">
-              {spotlightFlavors.map((item) => {
-                const selected = item.name === flavor;
+              {activeTub.flavors.map((item) => {
+                const selected = item.name === activeFlavor?.name;
                 return (
                   <button
                     key={item.name}
                     type="button"
                     className={`order-flavor${selected ? ' is-selected' : ''}`}
                     aria-pressed={selected}
-                    onClick={() => setFlavor(item.name)}
+                    onClick={() => setFlavorName(item.name)}
                   >
                     <img src={item.image} alt="" loading="lazy" decoding="async" />
-                    <span>{item.name}</span>
+                    <span>{item.name.replace(/^Malaice\s+/i, '')}</span>
                   </button>
                 );
               })}
-              <Link to="/products" className="order-flavor order-flavor--more">
-                <span>See all</span>
-              </Link>
             </div>
           </div>
         </div>
@@ -169,7 +184,7 @@ export default function Order() {
               Ready when you are
             </p>
             <h2>
-              {activeTub.size} · {flavor}
+              {activeTub.size} · {activeFlavor?.name.replace(/^Malaice\s+/i, '') ?? 'Flavor'}
             </h2>
             <p>
               Call {contactInfo.phone} or message us on WhatsApp — we&apos;ll confirm

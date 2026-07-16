@@ -1,22 +1,28 @@
 /* Global variables + shell (Layout only) */
 
 :root {
-  --bg-deep: #07060d;
-  --bg-card: rgba(255, 255, 255, 0.04);
-  --border-glass: rgba(255, 255, 255, 0.1);
-  --text-primary: #f4f0eb;
-  --text-muted: rgba(244, 240, 235, 0.62);
-  --text-faint: rgba(244, 240, 235, 0.38);
+  --bg-deep: #FFFDF8;
+  --bg-soft: #FFF8F2;
+  --bg-warm: #FFF3EC;
+  --bg-card: #FFFFFF;
+  --border-glass: #F0E6DD;
+  --text-primary: #2A2A2A;
+  --text-muted: #555555;
+  --text-faint: #7A7A7A;
 
-  --flavor-strawberry: #ff6b9d;
-  --flavor-mango: #ffb347;
-  --flavor-mint: #6ee7b7;
-  --flavor-lavender: #c084fc;
-  --flavor-cyan: #67e8f9;
+  --flavor-strawberry: #FF5A8A;
+  --flavor-mango: #FFB347;
+  --flavor-mint: #8EE3C4;
+  --flavor-lavender: #FF8C42;
+  --flavor-cyan: #8ED8FF;
 
-  --gradient-brand: linear-gradient(135deg, #ff6b9d 0%, #c084fc 45%, #67e8f9 100%);
-  --gradient-warm: linear-gradient(135deg, #ffb347, #ff6b9d);
-  --gradient-panel: linear-gradient(145deg, #1a1228 0%, #0f0a18 50%, #120d1f 100%);
+  --gradient-brand: linear-gradient(135deg, #FF5A8A 0%, #FF8C42 100%);
+  --gradient-warm: linear-gradient(135deg, #FFB347, #FF5A8A);
+  --gradient-panel: linear-gradient(145deg, #FFFDF8 0%, #FFF8F5 50%, #FFF3EC 100%);
+  --gradient-hero: linear-gradient(180deg, #FFFDF8 0%, #FFF8F5 40%, #FFF3EC 100%);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 18px 45px rgba(0, 0, 0, 0.10);
+  --shadow-soft: 0 8px 24px rgba(255, 90, 138, 0.22);
 
   --font-display: "Syne", system-ui, sans-serif;
   --font-body: "DM Sans", system-ui, sans-serif;
@@ -63,6 +69,7 @@ h1, h2, h3, h4 {
   line-height: 1.1;
   margin: 0 0 1rem;
   letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
 h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
@@ -80,13 +87,14 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
+  background: var(--gradient-hero);
 }
 
 .ambient__orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.45;
+  opacity: 0.55;
   animation: drift 18s ease-in-out infinite alternate;
 }
 
@@ -95,7 +103,7 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
   height: 55vw;
   top: -15%;
   left: -10%;
-  background: radial-gradient(circle, #ff6b9d55, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 90, 138, 0.22), transparent 70%);
 }
 
 .ambient__orb--2 {
@@ -103,7 +111,7 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
   height: 45vw;
   bottom: -10%;
   right: -5%;
-  background: radial-gradient(circle, #c084fc44, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 179, 71, 0.2), transparent 70%);
   animation-delay: -6s;
 }
 
@@ -112,14 +120,14 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
   height: 35vw;
   top: 40%;
   left: 35%;
-  background: radial-gradient(circle, #67e8f933, transparent 70%);
+  background: radial-gradient(circle, rgba(142, 227, 196, 0.2), transparent 70%);
   animation-delay: -12s;
 }
 
 .ambient__grain {
   position: absolute;
   inset: 0;
-  opacity: 0.035;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -137,15 +145,16 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
   height: 48px;
   border: 1px solid var(--border-glass);
   border-radius: 50%;
-  background: rgba(12, 10, 20, 0.85);
+  background: #FFFFFF;
   backdrop-filter: blur(12px);
-  color: var(--text-primary);
+  color: var(--flavor-strawberry);
   font-size: 1.1rem;
   cursor: pointer;
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 999;
+  box-shadow: var(--shadow-card);
   transition: transform 0.25s, box-shadow 0.25s;
 }
 
@@ -161,7 +170,7 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
 
 .back-to-top:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(192, 132, 252, 0.25);
+  box-shadow: var(--shadow-soft);
 }
 
 @media (prefers-reduced-motion: reduce) {

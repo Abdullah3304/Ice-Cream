@@ -45,7 +45,7 @@
 }
 
 .btn--glow {
-  color: var(--bg-deep);
+  color: #FFFFFF;
   background: var(--gradient-brand);
   position: relative;
   overflow: hidden;
@@ -53,7 +53,7 @@
 
 .btn--glow:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(192, 132, 252, 0.4);
+  box-shadow: var(--shadow-soft);
 }
 
 .btn--full { width: 100%; }
@@ -75,10 +75,10 @@
 
 .contact-card {
   padding: 40px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
+  background: #FFFFFF;
+  border: 1px solid #F2E7DF;
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
 }
 
 .contact-list {
@@ -124,7 +124,7 @@
   font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.04);
+  background: #FFF8F5;
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-sm);
   transition: border-color 0.25s, box-shadow 0.25s;
@@ -136,8 +136,8 @@
 .glass-form input:focus,
 .glass-form textarea:focus {
   outline: none;
-  border-color: rgba(192, 132, 252, 0.5);
-  box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.12);
+  border-color: rgba(255, 90, 138, 0.45);
+  box-shadow: 0 0 0 3px rgba(255, 90, 138, 0.12);
 }
 
 .glass-form textarea {
@@ -157,7 +157,7 @@
   height: 56px;
   border-radius: 50%;
   background: var(--gradient-brand);
-  color: var(--bg-deep);
+  color: #FFFFFF;
   font-size: 1.4rem;
   margin-bottom: 20px;
 }
@@ -166,8 +166,8 @@
   margin: 0 0 16px;
   padding: 12px 14px;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 107, 157, 0.35);
-  background: rgba(255, 107, 157, 0.08);
+  border: 1px solid rgba(255, 90, 138, 0.35);
+  background: rgba(255, 90, 138, 0.08);
   color: var(--flavor-strawberry);
   font-size: 0.9rem;
 }
