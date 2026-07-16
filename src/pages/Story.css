@@ -9,11 +9,12 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--flavor-strawberry);
   margin-bottom: 1.25rem;
 }
 
@@ -61,7 +62,7 @@
 .stat-card {
   padding: 28px;
   background: #FFFFFF;
-  border: 1px solid #F2E7DF;
+  border: 1px solid #E8DDD4;
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
@@ -122,7 +123,7 @@
 .timeline__item {
   padding: 48px 24px 32px;
   background: #FFFFFF;
-  border: 1px solid #F2E7DF;
+  border: 1px solid #E8DDD4;
   border-radius: var(--radius-md);
   text-align: center;
   position: relative;
@@ -154,7 +155,7 @@
 .about-gallery__item {
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid #F2E7DF;
+  border: 1px solid #E8DDD4;
   background: #FFFFFF;
   aspect-ratio: 1;
   padding: 20px;

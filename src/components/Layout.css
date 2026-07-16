@@ -1,39 +1,45 @@
-/* Global variables + shell (Layout only) */
+/* Global variables + shell — Coral Cream parlor theme */
 
 :root {
-  --bg-deep: #FFFDF8;
-  --bg-soft: #FFF8F2;
-  --bg-warm: #FFF3EC;
+  /* Fresh vanilla + sea-glass surfaces */
+  --bg-deep: #FFFEFA;
+  --bg-soft: #FFF4EF;
+  --bg-warm: #EEFFFB;
+  --bg-sky: #EEF8FF;
   --bg-card: #FFFFFF;
-  --border-glass: #F0E6DD;
-  --text-primary: #2A2A2A;
-  --text-muted: #555555;
-  --text-faint: #7A7A7A;
 
-  --flavor-strawberry: #FF5A8A;
-  --flavor-mango: #FFB347;
-  --flavor-mint: #8EE3C4;
-  --flavor-lavender: #FF8C42;
-  --flavor-cyan: #8ED8FF;
+  --border-glass: #E8DDD4;
+  --text-primary: #1E1B18;
+  --text-muted: #5E564F;
+  --text-faint: #8B8278;
 
-  --gradient-brand: linear-gradient(135deg, #FF5A8A 0%, #FF8C42 100%);
-  --gradient-warm: linear-gradient(135deg, #FFB347, #FF5A8A);
-  --gradient-panel: linear-gradient(145deg, #FFFDF8 0%, #FFF8F5 50%, #FFF3EC 100%);
-  --gradient-hero: linear-gradient(180deg, #FFFDF8 0%, #FFF8F5 40%, #FFF3EC 100%);
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 18px 45px rgba(0, 0, 0, 0.10);
-  --shadow-soft: 0 8px 24px rgba(255, 90, 138, 0.22);
+  /* Coral, butter, seafoam, sky */
+  --flavor-strawberry: #FF5C6C;
+  --flavor-mango: #FFC14A;
+  --flavor-mint: #1EC8B0;
+  --flavor-lavender: #FF8A5B;
+  --flavor-cyan: #3BA7E8;
 
-  --font-display: "Syne", system-ui, sans-serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
+  --gradient-brand: linear-gradient(135deg, #FF5C6C 0%, #FF8A5B 48%, #FFC14A 100%);
+  --gradient-warm: linear-gradient(135deg, #FFC14A, #FF5C6C);
+  --gradient-cool: linear-gradient(135deg, #1EC8B0, #3BA7E8);
+  --gradient-panel: linear-gradient(145deg, #FFFEFA 0%, #FFF4EF 50%, #EEFFFB 100%);
+  --gradient-hero: linear-gradient(170deg, #FFFEFA 0%, #FFF4EF 32%, #EEF8FF 68%, #EEFFFB 100%);
+
+  --shadow-card: 0 12px 34px rgba(255, 92, 108, 0.09);
+  --shadow-card-hover: 0 22px 50px rgba(255, 92, 108, 0.15);
+  --shadow-soft: 0 12px 30px rgba(255, 92, 108, 0.3);
+
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
 
   --max-w: 1180px;
   --header-bar: 68px;
   --header-offset: 16px;
   --nav-width: min(580px, calc(100% - 200px));
   --nav-width-mobile: min(520px, calc(100% - 48px));
-  --radius-sm: 12px;
-  --radius-md: 20px;
+  --radius-sm: 14px;
+  --radius-md: 22px;
   --radius-lg: 32px;
   --radius-pill: 999px;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -47,8 +53,8 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 17px;
+  line-height: 1.7;
   color: var(--text-primary);
   background: var(--bg-deep);
   overflow-x: hidden;
@@ -66,21 +72,20 @@ a {
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.05;
   margin: 0 0 1rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
   color: var(--text-primary);
 }
 
-h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: 1.25rem; }
+h1 { font-size: clamp(2.9rem, 6.5vw, 4.8rem); font-weight: 800; }
+h2 { font-size: clamp(2.2rem, 4.3vw, 3.2rem); font-weight: 700; }
+h3 { font-size: 1.3rem; font-weight: 700; }
 
 p { margin: 0 0 1rem; color: var(--text-muted); }
 
 .site-main { padding-top: 8px; }
 
-/* Ambient background */
 .ambient {
   position: fixed;
   inset: 0;
@@ -93,41 +98,41 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
 .ambient__orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.55;
+  filter: blur(92px);
+  opacity: 0.72;
   animation: drift 18s ease-in-out infinite alternate;
 }
 
 .ambient__orb--1 {
-  width: 55vw;
-  height: 55vw;
-  top: -15%;
-  left: -10%;
-  background: radial-gradient(circle, rgba(255, 90, 138, 0.22), transparent 70%);
+  width: 56vw;
+  height: 56vw;
+  top: -18%;
+  left: -12%;
+  background: radial-gradient(circle, rgba(255, 92, 108, 0.3), transparent 70%);
 }
 
 .ambient__orb--2 {
-  width: 45vw;
-  height: 45vw;
-  bottom: -10%;
-  right: -5%;
-  background: radial-gradient(circle, rgba(255, 179, 71, 0.2), transparent 70%);
+  width: 48vw;
+  height: 48vw;
+  bottom: -14%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(30, 200, 176, 0.26), transparent 70%);
   animation-delay: -6s;
 }
 
 .ambient__orb--3 {
-  width: 35vw;
-  height: 35vw;
-  top: 40%;
-  left: 35%;
-  background: radial-gradient(circle, rgba(142, 227, 196, 0.2), transparent 70%);
+  width: 40vw;
+  height: 40vw;
+  top: 36%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(59, 167, 232, 0.24), transparent 70%);
   animation-delay: -12s;
 }
 
 .ambient__grain {
   position: absolute;
   inset: 0;
-  opacity: 0.02;
+  opacity: 0.016;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -136,7 +141,6 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
   to   { transform: translate(4%, 6%) scale(1.08); }
 }
 
-/* Back to top */
 .back-to-top {
   position: fixed;
   bottom: 28px;
@@ -146,7 +150,6 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
   border: 1px solid var(--border-glass);
   border-radius: 50%;
   background: #FFFFFF;
-  backdrop-filter: blur(12px);
   color: var(--flavor-strawberry);
   font-size: 1.1rem;
   cursor: pointer;

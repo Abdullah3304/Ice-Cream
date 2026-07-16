@@ -17,7 +17,7 @@ const tubs = [
     label: 'The Big Bang',
     vibe: 'Party-size for the whole block',
     image: familyPacks[0]?.image ?? '/images/products/9.4 liter.webp',
-    accent: '#FF5A8A',
+    accent: '#FF5C6C',
     flavors: barFlavors,
   },
   {
@@ -26,7 +26,7 @@ const tubs = [
     label: 'The Bang',
     vibe: 'Family nights, freezer-ready',
     image: familyPacks[1]?.image ?? '/images/products/4.5 liter.webp',
-    accent: '#FFB347',
+    accent: '#FFC14A',
     flavors: barFlavors,
   },
   {
@@ -35,7 +35,7 @@ const tubs = [
     label: 'Bar Pack',
     vibe: `${barFlavors.length} flavors ready to order`,
     image: barFlavors[0]?.image ?? '/images/products/750ML Bar/Mango.webp',
-    accent: '#8ED8FF',
+    accent: '#3BA7E8',
     flavors: barFlavors,
   },
 ];

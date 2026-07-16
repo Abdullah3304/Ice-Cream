@@ -2,7 +2,7 @@ export const productCategories = [
   {
     name: 'Pro Family Pack',
     tag: 'Bulk',
-    color: '#ff6b9d',
+    color: '#FF5C6C',
     type: 'packs',
     packs: [
       {
@@ -19,7 +19,7 @@ export const productCategories = [
   {
     name: '750ML Bar Pack',
     tag: 'Bar Pack',
-    color: '#fcd34d',
+    color: '#FFC14A',
     products: [
       { name: 'Malaice Strawberry', image: '/images/products/750ML Bar/Strawberry.webp' },
       { name: 'Malaice Mango', image: '/images/products/750ML Bar/Mango.webp' },
@@ -40,7 +40,7 @@ export const productCategories = [
   {
     name: 'Lids',
     tag: 'Lids',
-    color: '#6ee7b7',
+    color: '#1EC8B0',
     products: [
       { name: 'Malaice Strawberry', image: '/images/products/Lids/Malaice Strawberry Lid.webp' },
       { name: 'Malaice Mango', image: '/images/products/Lids/Malaice Mango Lid.webp' },
@@ -62,7 +62,7 @@ export const productCategories = [
   {
     name: 'Popsicles',
     tag: 'Popsicles',
-    color: '#fb923c',
+    color: '#FF8A5B',
     products: [
       { name: 'Malaice Strawberry', image: '/images/products/Popsicles/strawberry.webp' },
       { name: 'Malaice Mango', image: '/images/products/Popsicles/mango.webp' },
@@ -76,7 +76,7 @@ export const productCategories = [
   {
     name: 'Lollies',
     tag: 'Lollies',
-    color: '#67e8f9',
+    color: '#3BA7E8',
     products: [
       { name: 'Malaice Orange ICE Lolly', image: '/images/products/Lollies/orange.webp' },
       { name: 'Malaice Apple ICE Lolly', image: '/images/products/Lollies/apple.webp' },
@@ -88,7 +88,7 @@ export const productCategories = [
 {
   name: 'Kulfi',
   tag: 'Kulfi',
-  color: '#67e8f9',
+  color: '#3BA7E8',
   products: [
     { name: 'Malaice Badami Kulfi', image: '/images/products/Kulfi/badamii.webp' },
     { name: 'Malaice Khoya Kulfi', image: '/images/products/Kulfi/khoya kulfi.webp' },

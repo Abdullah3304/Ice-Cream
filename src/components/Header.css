@@ -1,4 +1,4 @@
-/* Navbar — shared on all pages */
+/* Navbar — Coral Cream theme */
 
 .site-header {
   position: fixed;
@@ -16,10 +16,10 @@
   gap: 20px;
   min-height: var(--header-bar);
   padding: 8px 12px 8px 10px;
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-pill);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 32px rgba(255, 92, 108, 0.1);
 }
 
 .header-inner--nav-only {
@@ -45,8 +45,9 @@
 .main-nav a {
   display: block;
   padding: 10px 16px;
-  font-size: 0.88rem;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
   color: var(--text-muted);
   border-radius: var(--radius-pill);
   transition: all 0.25s var(--ease-out);
@@ -55,13 +56,13 @@
 .main-nav a:hover,
 .main-nav a.active {
   color: var(--flavor-strawberry);
-  background: rgba(255, 90, 138, 0.08);
+  background: linear-gradient(135deg, rgba(255, 92, 108, 0.12), rgba(255, 193, 74, 0.12));
 }
 
 .header-cta {
   padding: 10px 20px !important;
-  font-size: 0.85rem !important;
-  font-weight: 600 !important;
+  font-size: 0.88rem !important;
+  font-weight: 800 !important;
   color: #FFFFFF !important;
   background: var(--gradient-brand) !important;
   border-radius: var(--radius-pill) !important;
@@ -70,11 +71,11 @@
 
 .header-cta:hover {
   transform: scale(1.03);
-  box-shadow: 0 6px 22px rgba(255, 90, 138, 0.35);
+  box-shadow: var(--shadow-soft);
 }
 
 .header-cta.is-active {
-  box-shadow: 0 0 0 2px rgba(255, 90, 138, 0.2), 0 6px 22px rgba(255, 90, 138, 0.3);
+  box-shadow: 0 0 0 2px rgba(255, 92, 108, 0.22), var(--shadow-soft);
 }
 
 .menu-toggle {
@@ -83,7 +84,7 @@
   height: 44px;
   border: none;
   border-radius: 50%;
-  background: rgba(255, 90, 138, 0.08);
+  background: linear-gradient(135deg, rgba(255, 92, 108, 0.14), rgba(30, 200, 176, 0.14));
   cursor: pointer;
   flex-direction: column;
   align-items: center;

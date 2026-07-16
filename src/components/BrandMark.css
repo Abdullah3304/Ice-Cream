@@ -1,4 +1,4 @@
-/* Logo — shared on all pages */
+/* Logo — Coral Cream theme */
 
 .site-top {
   padding: 18px 0 10px 16px;
@@ -31,9 +31,9 @@
 .brand-mark strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.65rem;
+  font-size: 1.9rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.045em;
   background: var(--gradient-brand);
   -webkit-background-clip: text;
   background-clip: text;
@@ -42,11 +42,12 @@
 
 .brand-mark small {
   display: block;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-faint);
 }
 
 @media (max-width: 768px) {
