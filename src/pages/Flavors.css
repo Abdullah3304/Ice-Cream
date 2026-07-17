@@ -1,7 +1,7 @@
-/* Products page — all CSS used on this page */
+/* Products — gelato boutique catalog */
 
 .container {
-  width: min(var(--max-w), 100% - 40px);
+  width: min(var(--max-w), 100% - 48px);
   margin-inline: auto;
 }
 
@@ -10,58 +10,65 @@
   align-items: center;
   gap: 12px;
   font-family: var(--font-body);
-  font-size: 0.76rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--flavor-strawberry);
-  margin-bottom: 1.25rem;
+  color: var(--pistachio);
+  margin-bottom: 1.4rem;
 }
 
 .eyebrow__line {
-  width: 32px;
-  height: 1px;
-  background: var(--gradient-brand);
+  width: 28px;
+  height: 1.5px;
+  background: var(--pistachio);
+  border-radius: 2px;
 }
 
 .text-gradient {
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--pistachio);
+  font-style: italic;
+  font-weight: 500;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 28px;
+  padding: 16px 32px;
   font-family: var(--font-body);
   font-size: 0.92rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
+  letter-spacing: 0.02em;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s, background 0.35s;
 }
 
 .btn--light {
   color: #FFFFFF;
-  background: var(--gradient-brand);
+  background: var(--pistachio);
+  box-shadow: 0 10px 24px rgba(127, 163, 122, 0.22);
 }
 
 .btn--light:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
-  box-shadow: var(--shadow-soft);
+  transform: translateY(-3px);
+  background: var(--gold);
+  box-shadow: 0 14px 32px rgba(201, 166, 107, 0.3);
 }
 
 .page-hero {
   position: relative;
-  padding: 60px 0 80px;
+  padding: 68px 0 88px;
   text-align: center;
   overflow: hidden;
-  background: linear-gradient(180deg, #FFFEFA 0%, #FFF4EF 100%);
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 0%, rgba(127, 163, 122, 0.1), transparent 60%),
+    linear-gradient(180deg, #F7F5EF 0%, #F2EFE8 100%);
 }
 
 .page-hero__bg {
@@ -74,7 +81,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.18;
+  opacity: 0.1;
   filter: blur(2px);
 }
 
@@ -82,7 +89,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,253,248,0.4), #FFFEFA);
+  background: linear-gradient(180deg, rgba(247,245,239,0.4), #F7F5EF);
 }
 
 .page-hero__lead {
@@ -92,34 +99,40 @@
 }
 
 .hero-sub {
-  font-size: 0.45em;
+  font-size: 0.42em;
   font-weight: 500;
-  color: var(--text-faint);
-  letter-spacing: 0.05em;
+  font-family: var(--font-body);
+  font-style: normal;
+  color: var(--ink-muted);
+  letter-spacing: 0.06em;
 }
 
-.flavor-catalog { padding-bottom: 60px; background: #FFFEFA; }
+.flavor-catalog {
+  padding-bottom: 68px;
+  background: var(--bg-main);
+}
 
 .flavor-filter {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px 20px;
-  margin-bottom: 40px;
+  gap: 14px 22px;
+  margin-bottom: 44px;
   padding: 18px 22px;
-  border: 1px solid #E8DDD4;
+  border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background: #FFFFFF;
   box-shadow: var(--shadow-card);
 }
 
 .flavor-filter__label {
-  font-size: 0.78rem;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--ink-muted);
 }
 
 .flavor-filter__control {
@@ -137,25 +150,23 @@
   width: 100%;
   padding: 13px 18px;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   font-weight: 500;
-  color: var(--text-primary);
+  color: var(--ink);
   text-align: left;
   cursor: pointer;
-  background: #FFF4EF;
-  border: 1px solid #E8DDD4;
+  background: var(--bg-alt);
+  border: 1.5px solid var(--line);
   border-radius: var(--radius-pill);
   box-shadow: none;
-  transition: border-color 0.25s var(--ease-out), box-shadow 0.25s, background 0.25s;
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s, background 0.3s;
 }
 
 .flavor-filter__trigger:hover,
 .flavor-filter__control.is-open .flavor-filter__trigger {
-  border-color: rgba(255, 92, 108, 0.45);
+  border-color: rgba(127, 163, 122, 0.5);
   background: #FFFFFF;
-  box-shadow:
-    0 0 0 3px rgba(255, 92, 108, 0.1),
-    0 10px 28px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 0 3px rgba(127, 163, 122, 0.1), var(--shadow-xs);
 }
 
 .flavor-filter__value {
@@ -168,7 +179,7 @@
   height: 12px;
   border-radius: 50%;
   flex-shrink: 0;
-  box-shadow: 0 0 0 2px rgba(255, 92, 108, 0.12);
+  box-shadow: 0 0 0 2px rgba(127, 163, 122, 0.15);
 }
 
 .flavor-filter__swatch--all {
@@ -178,10 +189,10 @@
 .flavor-filter__chevron {
   width: 8px;
   height: 8px;
-  border-right: 2px solid var(--text-muted);
-  border-bottom: 2px solid var(--text-muted);
+  border-right: 2px solid var(--ink-soft);
+  border-bottom: 2px solid var(--ink-soft);
   transform: rotate(45deg) translateY(-2px);
-  transition: transform 0.25s var(--ease-out);
+  transition: transform 0.3s var(--ease-out);
   flex-shrink: 0;
 }
 
@@ -198,11 +209,11 @@
   padding: 8px;
   list-style: none;
   border-radius: var(--radius-md);
-  border: 1px solid #E8DDD4;
+  border: 1px solid var(--line);
   background: #FFFFFF;
   box-shadow: var(--shadow-card-hover);
   overflow: hidden;
-  animation: filter-menu-in 0.22s var(--ease-out);
+  animation: filter-menu-in 0.28s var(--ease-out);
 }
 
 .flavor-filter__option {
@@ -214,37 +225,32 @@
   border: none;
   border-radius: 12px;
   background: transparent;
-  color: var(--text-muted);
+  color: var(--ink-soft);
   font-family: var(--font-body);
   font-size: 0.94rem;
   font-weight: 500;
   text-align: left;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.22s, color 0.22s;
 }
 
 .flavor-filter__option:hover {
-  color: var(--text-primary);
-  background: #FFF4EF;
+  color: var(--ink);
+  background: var(--bg-alt);
 }
 
 .flavor-filter__option.is-active {
-  color: var(--text-primary);
-  background: linear-gradient(90deg, rgba(255, 92, 108, 0.12), rgba(59, 167, 232, 0.12));
+  color: var(--ink);
+  background: rgba(127, 163, 122, 0.12);
+  font-weight: 600;
 }
 
 @keyframes filter-menu-in {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.flavor-section { margin-bottom: 64px; }
+.flavor-section { margin-bottom: 68px; }
 
 .flavor-section__head {
   display: flex;
@@ -254,14 +260,14 @@
 }
 
 .flavor-section__swatch {
-  width: 14px;
+  width: 10px;
   height: 48px;
   border-radius: var(--radius-pill);
   flex-shrink: 0;
 }
 
-.flavor-section__head h2 { margin: 0; font-size: 1.75rem; }
-.flavor-section__head p  { margin: 4px 0 0; font-size: 0.85rem; color: var(--text-faint); }
+.flavor-section__head h2 { margin: 0; font-size: 2rem; }
+.flavor-section__head p  { margin: 4px 0 0; font-size: 0.88rem; color: var(--ink-muted); }
 
 .pack-showcase {
   display: grid;
@@ -275,31 +281,28 @@
   flex-direction: column;
   align-items: center;
   min-width: 0;
-  padding: 16px;
+  padding: 18px;
   background: #FFFFFF;
-  border: 1px solid #E8DDD4;
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  transition: transform 0.35s var(--ease-out), border-color 0.35s, box-shadow 0.35s;
+  transition: transform 0.4s var(--ease-out), border-color 0.4s, box-shadow 0.4s;
 }
 
 .pack-showcase__card:hover {
-  transform: translateY(-5px);
-  border-color: color-mix(in srgb, var(--pack-color) 35%, #E8DDD4);
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--pack-color) 35%, var(--line));
   box-shadow: var(--shadow-card-hover);
 }
 
 .pack-showcase__title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
   text-align: center;
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--ink);
 }
 
 .pack-showcase__img-wrap {
@@ -311,7 +314,7 @@
   border-radius: var(--radius-md);
   background: radial-gradient(
     circle at 50% 70%,
-    color-mix(in srgb, var(--pack-color) 22%, transparent),
+    color-mix(in srgb, var(--pack-color) 18%, transparent),
     transparent 72%
   );
   display: flex;
@@ -324,7 +327,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.35s var(--ease-out);
+  transition: transform 0.4s var(--ease-out);
 }
 
 .pack-showcase__card:hover .pack-showcase__img { transform: scale(1.04); }
@@ -332,7 +335,7 @@
 .flavor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 .flavor-card {
@@ -340,51 +343,51 @@
   display: flex;
   flex-direction: column;
   background: #FFFFFF;
-  border: 1px solid #E8DDD4;
+  border: 1px solid var(--line);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  transition: transform 0.35s var(--ease-out), border-color 0.35s, box-shadow 0.35s;
+  transition: transform 0.4s var(--ease-out), border-color 0.4s, box-shadow 0.4s;
   animation: card-in 0.6s var(--ease-out) both;
   animation-delay: var(--delay, 0s);
 }
 
-
 .flavor-card__img-wrap {
-  aspect-ratio: 2.2 / 1;   /* Match the label shape */
+  aspect-ratio: 2.2 / 1;
   min-height: 280px;
-  padding: 10px;
+  padding: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #FFF4EF;
+  background: var(--bg-alt);
 }
+
 .flavor-card__img {
   width: 100%;
   max-height: 160px;
   object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(42, 42, 42, 0.12));
-  transition: transform 0.35s var(--ease-out);
+  filter: drop-shadow(0 10px 20px rgba(47, 58, 52, 0.1));
+  transition: transform 0.4s var(--ease-out);
 }
 
 .flavor-card:hover .flavor-card__img {
-  transform: scale(1.08) translateY(-4px);
+  transform: scale(1.06) translateY(-4px);
 }
 
 .flavor-card__body {
-  padding: 16px 20px 20px;
+  padding: 16px 20px 22px;
   position: relative;
   z-index: 1;
 }
 
 @keyframes card-in {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .flavor-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  border-color: color-mix(in srgb, var(--flavor-color) 40%, #E8DDD4);
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--flavor-color) 35%, var(--line));
   box-shadow: var(--shadow-card-hover);
 }
 
@@ -396,26 +399,24 @@
   height: 80px;
   border-radius: 50%;
   background: var(--flavor-color);
-  opacity: 0.15;
+  opacity: 0.12;
   filter: blur(20px);
-  transition: opacity 0.35s;
+  transition: opacity 0.4s;
 }
 
-.flavor-card:hover .flavor-card__orb { opacity: 0.35; }
+.flavor-card:hover .flavor-card__orb { opacity: 0.28; }
 
 .flavor-card__tag {
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--flavor-color);
+  color: var(--pistachio);
 }
 
-.flavor-card h3 { margin: 8px 0 6px; font-size: 1.05rem; }
+.flavor-card h3 { margin: 8px 0 6px; font-size: 1.2rem; }
+.flavor-card p { margin: 0; font-size: 0.82rem; color: var(--ink-muted); }
 
-.flavor-card p { margin: 0; font-size: 0.8rem; color: var(--text-faint); }
-
-/* Poppsicles — 3 per row, larger cards */
 .flavor-grid--popsicles {
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
@@ -433,27 +434,18 @@
   height: 420px;
   max-height: 420px;
   object-fit: contain;
-  
 }
 
-.flavor-section--popsicles .flavor-card__body {
-  padding: 20px 24px 28px;
-}
+.flavor-section--popsicles .flavor-card__body { padding: 20px 24px 28px; }
+.flavor-section--popsicles .flavor-card h3 { font-size: 1.35rem; }
 
-.flavor-section--popsicles .flavor-card h3 {
-  font-size: 1.2rem;
-}
-
-/* 750ML Bar — 2 per row, aligned with Pro Family Pack */
 .flavor-grid--bars {
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
   width: 100%;
 }
 
-.flavor-section--bars .flavor-card {
-  min-width: 0;
-}
+.flavor-section--bars .flavor-card { min-width: 0; }
 
 .flavor-section--bars .flavor-card__img {
   width: 100%;
@@ -462,7 +454,6 @@
   object-fit: contain;
 }
 
-/* Lids — 3 per row */
 .flavor-grid--lids {
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
@@ -475,22 +466,16 @@
 }
 
 .flavor-section--lids .flavor-card__img {
-  width: 820px; 
-  max-width: 800px;         /* Increase from 100% */
+  width: 820px;
+  max-width: 800px;
   max-height: 350px;
   height: 460px;
   object-fit: contain;
 }
 
-.flavor-section--lids .flavor-card__body {
-  padding: 18px 20px 24px;
-}
+.flavor-section--lids .flavor-card__body { padding: 18px 20px 24px; }
+.flavor-section--lids .flavor-card h3 { font-size: 1.3rem; }
 
-.flavor-section--lids .flavor-card h3 {
-  font-size: 1.15rem;
-}
-
-/* Lollies — 2 per row */
 .flavor-grid--lollies {
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
@@ -508,18 +493,11 @@
   max-height: 640px;
   height: 640px;
   object-fit: contain;
- 
 }
 
-.flavor-section--lollies .flavor-card__body {
-  padding: 22px 28px 32px;
-}
+.flavor-section--lollies .flavor-card__body { padding: 22px 28px 32px; }
+.flavor-section--lollies .flavor-card h3 { font-size: 1.4rem; }
 
-.flavor-section--lollies .flavor-card h3 {
-  font-size: 1.25rem;
-}
-
-/* Kulfi — 3 per row, large images */
 .flavor-grid--kulfi {
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
@@ -536,24 +514,19 @@
   max-width: 350px;
   max-height: 350px;
   height: 350px;
- 
 }
 
-.flavor-section--kulfi .flavor-card__body {
-  padding: 22px 28px 32px;
-}
-
-.flavor-section--kulfi .flavor-card h3 {
-  font-size: 1.25rem;
-}
+.flavor-section--kulfi .flavor-card__body { padding: 22px 28px 32px; }
+.flavor-section--kulfi .flavor-card h3 { font-size: 1.4rem; }
 
 .cta-panel {
-  margin: 0 20px 80px;
+  margin: 0 24px 88px;
   border-radius: var(--radius-lg);
   background: var(--gradient-panel);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--line);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-card);
 }
 
 .cta-panel::before {
@@ -561,19 +534,20 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(255, 92, 108, 0.14), transparent 55%),
-    radial-gradient(ellipse at 80% 50%, rgba(59, 167, 232, 0.14), transparent 55%);
+    radial-gradient(ellipse at 20% 50%, rgba(127, 163, 122, 0.12), transparent 55%),
+    radial-gradient(ellipse at 80% 50%, rgba(201, 228, 214, 0.18), transparent 55%);
 }
 
 .cta-panel__inner {
   position: relative;
   text-align: center;
-  padding: 56px 24px;
+  padding: 60px 28px;
 }
 
 .cta-panel__inner h2 { margin-bottom: 0.75rem; }
 
 @media (max-width: 960px) {
+  .container { width: min(var(--max-w), 100% - 32px); }
   .pack-showcase { grid-template-columns: 1fr; }
   .flavor-grid--popsicles { grid-template-columns: repeat(2, 1fr); }
   .flavor-section--popsicles .flavor-card__img-wrap { min-height: 280px; }
@@ -590,11 +564,13 @@
   .flavor-grid--kulfi { grid-template-columns: 1fr; }
   .flavor-section--kulfi .flavor-card__img-wrap { min-height: 340px; }
   .flavor-section--kulfi .flavor-card__img { max-height: 300px; height: 300px; }
+  .cta-panel { margin: 0 16px 68px; }
 }
 
 @media (max-width: 560px) {
-  .flavor-grid--popsicles { grid-template-columns: 1fr; }
-  .flavor-grid--lids { grid-template-columns: 1fr; }
-  .flavor-grid--lollies { grid-template-columns: 1fr; }
+  .flavor-grid--popsicles,
+  .flavor-grid--lids,
+  .flavor-grid--lollies,
   .flavor-grid--kulfi { grid-template-columns: 1fr; }
+  .page-hero { padding: 52px 0 68px; }
 }

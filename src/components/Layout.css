@@ -1,49 +1,69 @@
-/* Global variables + shell — Coral Cream parlor theme */
+/* Malaice — Italian Coast Gelato Boutique (global) */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap");
 
 :root {
-  /* Fresh vanilla + sea-glass surfaces */
-  --bg-deep: #FFFEFA;
-  --bg-soft: #FFF4EF;
-  --bg-warm: #EEFFFB;
-  --bg-sky: #EEF8FF;
+  --bg-main: #F7F5EF;
+  --bg-alt: #F2EFE8;
   --bg-card: #FFFFFF;
+  --bg-seafoam: #F4FAF7;
+  --bg-peach: #FBF6F2;
+  --bg-gold: #F9F5ED;
 
-  --border-glass: #E8DDD4;
-  --text-primary: #1E1B18;
-  --text-muted: #5E564F;
-  --text-faint: #8B8278;
+  --pistachio: #7FA37A;
+  --sage: #A9C3A2;
+  --peach: #E8B79B;
+  --gold: #C9A66B;
+  --seafoam: #C9E4D6;
 
-  /* Coral, butter, seafoam, sky */
-  --flavor-strawberry: #FF5C6C;
-  --flavor-mango: #FFC14A;
-  --flavor-mint: #1EC8B0;
-  --flavor-lavender: #FF8A5B;
-  --flavor-cyan: #3BA7E8;
+  --ink: #2F3A34;
+  --ink-soft: #5C655F;
+  --ink-muted: #7C847E;
+  --line: #E6E2D9;
 
-  --gradient-brand: linear-gradient(135deg, #FF5C6C 0%, #FF8A5B 48%, #FFC14A 100%);
-  --gradient-warm: linear-gradient(135deg, #FFC14A, #FF5C6C);
-  --gradient-cool: linear-gradient(135deg, #1EC8B0, #3BA7E8);
-  --gradient-panel: linear-gradient(145deg, #FFFEFA 0%, #FFF4EF 50%, #EEFFFB 100%);
-  --gradient-hero: linear-gradient(170deg, #FFFEFA 0%, #FFF4EF 32%, #EEF8FF 68%, #EEFFFB 100%);
+  /* legacy aliases used across pages */
+  --bg-deep: var(--bg-main);
+  --bg-soft: var(--bg-alt);
+  --bg-warm: var(--bg-peach);
+  --bg-sky: var(--bg-seafoam);
+  --bg-mint: var(--bg-seafoam);
+  --border-glass: var(--line);
+  --text-primary: var(--ink);
+  --text-muted: var(--ink-soft);
+  --text-faint: var(--ink-muted);
 
-  --shadow-card: 0 12px 34px rgba(255, 92, 108, 0.09);
-  --shadow-card-hover: 0 22px 50px rgba(255, 92, 108, 0.15);
-  --shadow-soft: 0 12px 30px rgba(255, 92, 108, 0.3);
+  --flavor-strawberry: var(--pistachio);
+  --flavor-mango: var(--gold);
+  --flavor-mint: var(--seafoam);
+  --flavor-lavender: var(--peach);
+  --flavor-cyan: var(--sage);
 
-  --font-display: "Outfit", system-ui, sans-serif;
-  --font-body: "Nunito", system-ui, sans-serif;
+  --gradient-brand: linear-gradient(135deg, #7FA37A 0%, #A9C3A2 100%);
+  --gradient-warm: linear-gradient(135deg, #C9A66B 0%, #E8B79B 100%);
+  --gradient-cool: linear-gradient(135deg, #C9E4D6 0%, #A9C3A2 100%);
+  --gradient-panel: linear-gradient(150deg, #FFFFFF 0%, #F7F5EF 50%, #F2EFE8 100%);
+  --gradient-hero: linear-gradient(165deg, #F7F5EF 0%, #FBF6F2 40%, #F4FAF7 75%, #F2EFE8 100%);
 
-  --max-w: 1180px;
-  --header-bar: 68px;
-  --header-offset: 16px;
-  --nav-width: min(580px, calc(100% - 200px));
-  --nav-width-mobile: min(520px, calc(100% - 48px));
+  --shadow-xs: 0 2px 10px rgba(47, 58, 52, 0.04);
+  --shadow-card: 0 10px 36px rgba(47, 58, 52, 0.05), 0 2px 6px rgba(47, 58, 52, 0.03);
+  --shadow-card-hover: 0 22px 48px rgba(47, 58, 52, 0.08), 0 6px 16px rgba(127, 163, 122, 0.08);
+  --shadow-soft: 0 14px 32px rgba(127, 163, 122, 0.28);
+  --shadow-nav: 0 12px 36px rgba(47, 58, 52, 0.06);
+
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+
+  --max-w: 1160px;
+  --header-bar: 66px;
+  --header-offset: 18px;
+  --nav-width: min(600px, calc(100% - 180px));
+  --nav-width-mobile: min(520px, calc(100% - 36px));
   --radius-sm: 14px;
-  --radius-md: 22px;
-  --radius-lg: 32px;
+  --radius-md: 24px;
+  --radius-lg: 36px;
   --radius-pill: 999px;
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --brand-logo: 88px;
+  --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --brand-logo: 86px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -53,12 +73,15 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--text-primary);
-  background: var(--bg-deep);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  background: var(--bg-main);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 img { max-width: 100%; display: block; }
@@ -66,25 +89,29 @@ img { max-width: 100%; display: block; }
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.25s var(--ease-out), opacity 0.25s;
+  transition: color 0.3s var(--ease-out), opacity 0.3s;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.05;
+  font-weight: 600;
+  line-height: 1.15;
   margin: 0 0 1rem;
-  letter-spacing: -0.035em;
-  color: var(--text-primary);
+  letter-spacing: -0.015em;
+  color: var(--ink);
 }
 
-h1 { font-size: clamp(2.9rem, 6.5vw, 4.8rem); font-weight: 800; }
-h2 { font-size: clamp(2.2rem, 4.3vw, 3.2rem); font-weight: 700; }
-h3 { font-size: 1.3rem; font-weight: 700; }
+h1 { font-size: clamp(3rem, 6.5vw, 5.2rem); font-weight: 600; }
+h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 600; }
+h3 { font-size: 1.45rem; font-weight: 600; }
 
-p { margin: 0 0 1rem; color: var(--text-muted); }
+p {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
 
-.site-main { padding-top: 8px; }
+.site-main { padding-top: 12px; }
 
 .ambient {
   position: fixed;
@@ -98,59 +125,60 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
 .ambient__orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(92px);
-  opacity: 0.72;
-  animation: drift 18s ease-in-out infinite alternate;
+  filter: blur(110px);
+  opacity: 0.55;
+  animation: ambient-drift 28s ease-in-out infinite alternate;
 }
 
 .ambient__orb--1 {
-  width: 56vw;
-  height: 56vw;
+  width: 52vw;
+  height: 52vw;
   top: -18%;
   left: -12%;
-  background: radial-gradient(circle, rgba(255, 92, 108, 0.3), transparent 70%);
+  background: radial-gradient(circle, rgba(127, 163, 122, 0.32), transparent 70%);
 }
 
 .ambient__orb--2 {
-  width: 48vw;
-  height: 48vw;
-  bottom: -14%;
+  width: 44vw;
+  height: 44vw;
+  bottom: -16%;
   right: -8%;
-  background: radial-gradient(circle, rgba(30, 200, 176, 0.26), transparent 70%);
-  animation-delay: -6s;
+  background: radial-gradient(circle, rgba(232, 183, 155, 0.28), transparent 70%);
+  animation-delay: -9s;
 }
 
 .ambient__orb--3 {
-  width: 40vw;
-  height: 40vw;
-  top: 36%;
+  width: 36vw;
+  height: 36vw;
+  top: 40%;
   left: 40%;
-  background: radial-gradient(circle, rgba(59, 167, 232, 0.24), transparent 70%);
-  animation-delay: -12s;
+  background: radial-gradient(circle, rgba(201, 228, 214, 0.4), transparent 70%);
+  animation-delay: -16s;
 }
 
 .ambient__grain {
   position: absolute;
   inset: 0;
-  opacity: 0.016;
+  opacity: 0.022;
+  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-@keyframes drift {
+@keyframes ambient-drift {
   from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(4%, 6%) scale(1.08); }
+  to   { transform: translate(3%, 4%) scale(1.06); }
 }
 
 .back-to-top {
   position: fixed;
   bottom: 28px;
   right: 28px;
-  width: 48px;
-  height: 48px;
-  border: 1px solid var(--border-glass);
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--line);
   border-radius: 50%;
-  background: #FFFFFF;
-  color: var(--flavor-strawberry);
+  background: var(--bg-card);
+  color: var(--pistachio);
   font-size: 1.1rem;
   cursor: pointer;
   display: none;
@@ -158,22 +186,25 @@ p { margin: 0 0 1rem; color: var(--text-muted); }
   justify-content: center;
   z-index: 999;
   box-shadow: var(--shadow-card);
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition: transform 0.35s var(--ease-out), background 0.35s, color 0.35s, box-shadow 0.35s;
 }
 
 .back-to-top.visible {
   display: flex;
-  animation: pop-in 0.35s var(--ease-out);
+  animation: back-fade 0.4s var(--ease-out);
 }
 
-@keyframes pop-in {
-  from { transform: scale(0.5); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
+@keyframes back-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .back-to-top:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  background: var(--pistachio);
+  color: #FFFFFF;
   box-shadow: var(--shadow-soft);
+  border-color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,7 +1,7 @@
-/* Coming Soon page */
+/* Coming Soon — gelato boutique */
 
 .container {
-  width: min(var(--max-w), 100% - 40px);
+  width: min(var(--max-w), 100% - 48px);
   margin-inline: auto;
 }
 
@@ -10,72 +10,88 @@
   align-items: center;
   gap: 12px;
   font-family: var(--font-body);
-  font-size: 0.76rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--flavor-strawberry);
-  margin-bottom: 1.25rem;
+  color: var(--pistachio);
+  margin-bottom: 1.4rem;
 }
 
 .eyebrow__line {
-  width: 32px;
-  height: 1px;
-  background: var(--gradient-brand);
+  width: 28px;
+  height: 1.5px;
+  background: var(--pistachio);
+  border-radius: 2px;
 }
 
 .text-gradient {
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--pistachio);
+  font-style: italic;
+  font-weight: 500;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 28px;
+  padding: 16px 32px;
   font-family: var(--font-body);
   font-size: 0.92rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
+  letter-spacing: 0.02em;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s, background 0.35s, border-color 0.35s;
 }
 
 .btn--glow {
   color: #FFFFFF;
-  background: var(--gradient-brand);
+  background: var(--pistachio);
+  box-shadow: 0 10px 24px rgba(127, 163, 122, 0.22);
 }
 
 .btn--glow:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-soft);
+  transform: translateY(-3px);
+  background: var(--gold);
+  box-shadow: 0 14px 32px rgba(201, 166, 107, 0.3);
 }
 
 .btn--ghost {
-  color: var(--flavor-strawberry);
+  color: var(--pistachio);
   background: #FFFFFF;
-  border: 1px solid var(--flavor-strawberry);
+  border: 1.5px solid var(--pistachio);
+  padding: 15px 30px;
 }
 
 .btn--ghost:hover {
-  background: rgba(255, 92, 108, 0.08);
-  transform: translateY(-2px);
+  background: rgba(127, 163, 122, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(127, 163, 122, 0.12);
 }
 
 .coming-soon {
   min-height: min(70vh, 640px);
   display: flex;
   align-items: center;
-  padding: 80px 0 100px;
+  padding: 88px 0 100px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 40%, rgba(127, 163, 122, 0.08), transparent 65%),
+    radial-gradient(ellipse 35% 30% at 80% 70%, rgba(201, 228, 214, 0.2), transparent 55%);
 }
 
 .coming-soon__inner {
   text-align: center;
   max-width: 640px;
+  padding: 52px 40px;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
 }
 
 .coming-soon__lead {
@@ -89,4 +105,10 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .container { width: min(var(--max-w), 100% - 32px); }
+  .coming-soon { padding: 64px 0 88px; }
+  .coming-soon__inner { padding: 36px 24px; }
 }
