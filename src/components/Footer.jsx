@@ -21,7 +21,7 @@ export default function Footer() {
             <span>{brand.logoMark} {brand.name}</span>
           )}
           <p className="footer-tagline">
-            Small-batch dairy ice cream. Bold flavors. Zero shortcuts.
+            Extraordinary dairy ice cream. Pure ingredients. Made properly.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span>&copy; {new Date().getFullYear()} {brand.name} {brand.tagline}</span>
-          <span className="footer-bottom__note">Crafted with cream, not compromise.</span>
+          <span className="footer-bottom__note">The best that best can be.</span>
         </div>
       </div>
     </footer>

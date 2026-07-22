@@ -153,13 +153,11 @@ export default function Products() {
             The collection
           </p>
           <h1>
-            Pick your
-            <span className="text-gradient"> poison</span>
-            <br />
-            <small className="hero-sub">(the delicious kind)</small>
+            Extraordinary
+            <span className="text-gradient"> flavours</span>
           </h1>
           <p className="page-hero__lead">
-            Tubs, bars, cones, and sticks — every format, every mood, every craving.
+            Tubs, bars, cones, and sticks — crafted from pure dairy for every mood and craving.
           </p>
         </div>
       </section>
@@ -225,8 +223,8 @@ export default function Products() {
 
       <section className="cta-panel cta-panel--compact">
         <div className="container cta-panel__inner">
-          <h2>Can&apos;t decide? Try them all.</h2>
-          <Link to="/contact" className="btn btn--light">Ask us for recommendations</Link>
+          <h2>Need a recommendation?</h2>
+          <Link to="/contact" className="btn btn--light">Ask us</Link>
         </div>
       </section>
     </>

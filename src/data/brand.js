@@ -5,6 +5,6 @@ export const brand = {
   logo: '/images/main-logo.png',
   useLogoImage: true,
   logoMark: '✦',
-  /** Logo width & height in px — only place to change size */
-  logoSize: 88,
+  /** Logo width & height in px */
+  logoSize: 150,
 };

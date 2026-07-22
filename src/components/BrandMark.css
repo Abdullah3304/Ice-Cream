@@ -1,51 +1,60 @@
-/* Brand mark — gelato boutique */
+/* Brand mark — full logo + slightly darker pink header strip */
 
 .site-top {
-  padding: 20px 0 10px 18px;
+  width: 100%;
+  padding: 10px 10px 10px;
+  background: #f6d1e1;
+  box-sizing: border-box;
 }
 
 .brand-mark {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  transition: opacity 0.3s var(--ease-out);
+  gap: 12px;
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 }
 
-.brand-mark:hover { opacity: 0.85; }
+.brand-mark:hover {
+  opacity: 0.94;
+  transform: translateY(-1px);
+}
 
-.brand-mark img,
+.brand-mark img {
+  width: var(--brand-logo);
+  height: var(--brand-logo);
+  object-fit: contain;
+  border-radius: 18px;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
 .brand-mark__fallback {
   width: var(--brand-logo);
   height: var(--brand-logo);
-  object-fit: cover;
-  border-radius: 20px;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-xs);
-}
-
-.brand-mark__fallback {
   display: grid;
   place-items: center;
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  background: var(--pistachio);
-  color: #FFFFFF;
+  background: var(--dark);
+  color: #FFF9FC;
+  border-radius: 18px;
 }
 
 .brand-mark strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.9rem;
+  font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  color: var(--dark);
 }
 
 .brand-mark small {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -54,6 +63,6 @@
 }
 
 @media (max-width: 768px) {
-  .site-top { padding: 14px 0 6px 12px; }
-  .brand-mark strong { font-size: 1.55rem; }
+  .site-top { padding: 12px 12px 64px; }
+  .brand-mark strong { font-size: 1.35rem; }
 }

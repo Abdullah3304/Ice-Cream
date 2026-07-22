@@ -1,32 +1,32 @@
-/* Coming Soon — gelato boutique */
+/* Coming Soon — French pâtisserie */
 
 .container {
-  width: min(var(--max-w), 100% - 48px);
+  width: min(var(--max-w), 100% - 44px);
   margin-inline: auto;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--pistachio);
-  margin-bottom: 1.4rem;
+  color: var(--dark);
+  margin-bottom: 1.2rem;
 }
 
 .eyebrow__line {
-  width: 28px;
+  width: 24px;
   height: 1.5px;
-  background: var(--pistachio);
+  background: var(--dark);
   border-radius: 2px;
 }
 
 .text-gradient {
-  color: var(--pistachio);
+  color: var(--dark);
   font-style: italic;
   font-weight: 500;
   background: none;
@@ -38,9 +38,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 32px;
+  padding: 14px 28px;
   font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
   border: none;
@@ -51,43 +51,44 @@
 
 .btn--glow {
   color: #FFFFFF;
-  background: var(--pistachio);
-  box-shadow: 0 10px 24px rgba(127, 163, 122, 0.22);
+  background: var(--dark);
+  box-shadow: 0 10px 22px rgba(75, 18, 40, 0.25);
 }
 
 .btn--glow:hover {
   transform: translateY(-3px);
-  background: var(--gold);
-  box-shadow: 0 14px 32px rgba(201, 166, 107, 0.3);
+  background: var(--dark);
+  box-shadow: 0 14px 30px rgba(75, 18, 40, 0.32);
 }
 
 .btn--ghost {
-  color: var(--pistachio);
+  color: var(--dark);
   background: #FFFFFF;
-  border: 1.5px solid var(--pistachio);
-  padding: 15px 30px;
+  border: 1.5px solid var(--dark);
+  padding: 13px 26px;
 }
 
 .btn--ghost:hover {
-  background: rgba(127, 163, 122, 0.08);
+  background: var(--bg-blush);
+  border-color: var(--dark);
   transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(127, 163, 122, 0.12);
+  box-shadow: 0 10px 22px rgba(75, 18, 40, 0.12);
 }
 
 .coming-soon {
-  min-height: min(70vh, 640px);
+  min-height: min(68vh, 620px);
   display: flex;
   align-items: center;
-  padding: 88px 0 100px;
+  padding: 80px 0 92px;
   background:
-    radial-gradient(ellipse 50% 45% at 50% 40%, rgba(127, 163, 122, 0.08), transparent 65%),
-    radial-gradient(ellipse 35% 30% at 80% 70%, rgba(201, 228, 214, 0.2), transparent 55%);
+    radial-gradient(ellipse 50% 45% at 50% 40%, rgba(75, 18, 40, 0.12), transparent 65%),
+    radial-gradient(ellipse 35% 30% at 80% 70%, rgba(75, 18, 40, 0.1), transparent 55%);
 }
 
 .coming-soon__inner {
   text-align: center;
-  max-width: 640px;
-  padding: 52px 40px;
+  max-width: 600px;
+  padding: 48px 36px;
   background: #FFFFFF;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -95,20 +96,29 @@
 }
 
 .coming-soon__lead {
-  max-width: 420px;
-  margin: 0 auto 2rem;
-  font-size: 1.1rem;
+  max-width: 400px;
+  margin: 0 auto 1.85rem;
+  font-size: 1.02rem;
 }
 
 .coming-soon__actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 11px;
 }
 
 @media (max-width: 768px) {
   .container { width: min(var(--max-w), 100% - 32px); }
-  .coming-soon { padding: 64px 0 88px; }
-  .coming-soon__inner { padding: 36px 24px; }
+  .coming-soon { padding: 60px 0 80px; }
+  .coming-soon__inner { padding: 32px 22px; }
+}
+
+
+.coming-soon {
+  background: var(--dark) !important;
+}
+.coming-soon__inner {
+  background: var(--light) !important;
+  border-color: transparent !important;
 }

@@ -69,8 +69,8 @@ function ContactForm() {
     <section className="contact-section">
       <div className="container contact-section__grid">
         <div className="contact-card contact-card--info">
-          <h2>Drop a line</h2>
-          <p>Partnerships, feedback, wholesale — whatever&apos;s on your mind.</p>
+          <h2>Get in touch</h2>
+          <p>Partnerships, feedback, wholesale — we are here for every extraordinary enquiry.</p>
           <ul className="contact-list">
             <li>
               <span className="contact-list__label">Address</span>
@@ -157,7 +157,7 @@ export default function Contact() {
         <div className="container">
           <p className="eyebrow">
             <span className="eyebrow__line" />
-            Say hello
+            Contact
           </p>
           <h1>
             We&apos;d love to

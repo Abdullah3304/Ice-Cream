@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import './Story.css';
 
 const milestones = [
-  { year: '1952', text: 'Malaice begins as a tiny neighborhood scoop shop with a big dream.' },
-  { year: '2000s', text: 'Industrial scale meets artisan soul — retail expansion across the nation.' },
-  { year: 'Today', text: '100,000+ liters daily. 10,000+ stores. One unwavering standard: pure dairy.' },
+  { year: '1952', text: 'Malaice begins as a tiny neighborhood scoop shop with one obsession: extraordinary dairy ice cream.' },
+  { year: '2000s', text: 'Industrial scale meets artisan soul — retail expands nationwide without diluting the craft.' },
+  { year: 'Today', text: '100,000+ liters daily. 10,000+ stores. One unwavering standard: pure dairy, made properly.' },
 ];
 
 const gallery = [
@@ -12,6 +12,29 @@ const gallery = [
   { src: '/images/products/Popsicles/salted caramel.webp', alt: 'Salted Caramel Popsicle', variant: 'label' },
   { src: '/images/products/Lollies/strawberry.webp', alt: 'Malaice Strawberry ICE Lolly', variant: 'label' },
   { src: '/images/products/Lids/Malaice Lotus Crumble Lid.webp', alt: 'Malaice Lotus Crumble Lid', variant: 'lid' },
+];
+
+const craftPillars = [
+  {
+    title: 'Pure dairy',
+    text: 'Fresh cream and milk only. No vegetable oils. No fillers. The silky texture adults deserve starts with honest dairy.',
+    image: '/images/products/750ML Bar/Vanilla.webp',
+  },
+  {
+    title: 'Real flavours',
+    text: 'From nostalgic kulfa to Belgian chocolate — every recipe is built for depth, not shortcuts. Extraordinary takes time.',
+    image: '/images/products/750ML Bar/Chocolate.webp',
+  },
+  {
+    title: 'Crafted daily',
+    text: 'Batch by batch, we chase the same goal: ice cream that melts cleanly, tastes true, and feels like a small luxury.',
+    image: '/images/products/750ML Bar/Mango.webp',
+  },
+  {
+    title: 'Made properly',
+    text: 'If it is not made with care, it is not the real deal. Pastes, bases, and finishes are treated with the same respect as the scoop.',
+    image: '/images/products/Kulfi/badamii.webp',
+  },
 ];
 
 export default function About() {
@@ -28,13 +51,13 @@ export default function About() {
             Our story
           </p>
           <h1>
-            Born from cream.
-            <br />
-            <span className="text-gradient">Built on belief.</span>
+            The Malaice Way
           </h1>
           <p className="page-hero__lead">
-            For over seven decades, Malaice has chased one obsession: ice cream that feels
-            like a celebration in every spoonful.
+            We have been making ice cream like no other since 1952. Our vision is simple:
+            a spoonful of luxury to elevate the everyday — crafted from the highest quality,
+            carefully selected ingredients. If you are like everyone else, you are lost.
+            So we make ice cream like no other.
           </p>
         </div>
       </section>
@@ -57,14 +80,22 @@ export default function About() {
       <section className="story-block">
         <div className="container story-block__grid">
           <div className="story-block__content">
-            <h2>The Malaice way</h2>
+            <p className="eyebrow">
+              <span className="eyebrow__line" />
+              Dedicated to great ice cream
+            </p>
+            <h2>Not just any scoop shop</h2>
             <p>
-              We started with a simple promise — use real cream, real milk, and never
-              cut corners. That promise still guides every batch we churn.
+              We spent a long time working out how to make the best ice cream we could.
+              We think we are pretty close. Here is how we got here.
             </p>
             <p>
-              From a handful of local carts to a nationwide network, we&apos;ve grown without
-              losing the craft that made people fall in love with us in the first place.
+              From a handful of local carts to a nationwide network, Malaice grew without
+              losing the craft that made people fall in love with us. Real cream. Real milk.
+              Flavours deserving of an adult&apos;s palate — and a child&apos;s delight.
+            </p>
+            <p>
+              Today that promise still guides every batch we churn: the best that best can be.
             </p>
           </div>
           <div className="stats-bento">
@@ -78,13 +109,55 @@ export default function About() {
             </div>
             <div className="stat-card">
               <span className="stat-card__value">13+</span>
-              <span className="stat-card__label">Flavors</span>
+              <span className="stat-card__label">Flavours</span>
             </div>
             <div className="stat-card stat-card--wide">
               <span className="stat-card__value">100K+</span>
               <span className="stat-card__label">Liters churned daily</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="craft-pillars">
+        <div className="container">
+          <div className="section-head section-head--story">
+            <p className="eyebrow eyebrow--center">
+              <span className="eyebrow__line" />
+              Our very own standards
+            </p>
+            <h2>Devoted to the highest quality</h2>
+            <p className="section-head__lead">
+              Extraordinary ice cream starts with what we put in — and what we leave out.
+              We champion real ingredients and recipes made with care.
+            </p>
+          </div>
+          <div className="craft-pillars__grid">
+            {craftPillars.map((pillar) => (
+              <article className="craft-card" key={pillar.title}>
+                <div className="craft-card__media">
+                  <img src={pillar.image} alt="" loading="lazy" decoding="async" />
+                </div>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="philosophy">
+        <div className="container philosophy__inner">
+          <p className="eyebrow">
+            <span className="eyebrow__line" />
+            Made from scratch
+          </p>
+          <h2>If it is not made properly, it is not the real deal</h2>
+          <p>
+            Everything that goes into Malaice — bases, flavours, finishes — is treated with
+            the same respect. We set our own standards. The best ingredients, for the ultimate
+            flavour. Because everyone deserves a spoonful of pleasure.
+          </p>
         </div>
       </section>
 

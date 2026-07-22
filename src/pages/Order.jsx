@@ -17,7 +17,7 @@ const tubs = [
     label: 'The Big Bang',
     vibe: 'Party-size for the whole block',
     image: familyPacks[0]?.image ?? '/images/products/9.4 liter.webp',
-    accent: '#FF5C6C',
+    accent: '#E8B4C8',
     flavors: barFlavors,
   },
   {
@@ -26,7 +26,7 @@ const tubs = [
     label: 'The Bang',
     vibe: 'Family nights, freezer-ready',
     image: familyPacks[1]?.image ?? '/images/products/4.5 liter.webp',
-    accent: '#FFC14A',
+    accent: '#C9B8E8',
     flavors: barFlavors,
   },
   {
@@ -35,7 +35,7 @@ const tubs = [
     label: 'Bar Pack',
     vibe: `${barFlavors.length} flavors ready to order`,
     image: barFlavors[0]?.image ?? '/images/products/750ML Bar/Mango.webp',
-    accent: '#3BA7E8',
+    accent: '#A8D4F0',
     flavors: barFlavors,
   },
 ];
@@ -75,14 +75,16 @@ export default function Order() {
           <div className="order-scene__copy">
             <p className="eyebrow">
               <span className="eyebrow__line" />
-              {brand.name} · Order desk
+              {brand.name} · Order
             </p>
             <h1>
-              Your freezer
-              <span className="text-gradient"> just called</span>
+              Extraordinary
+              <span className="text-gradient"> ice cream</span>
+              <br />
+              delivered.
             </h1>
             <p className="order-scene__lead">
-              {activeTub.size} {activeTub.label} — pick any flavor below and we&apos;ll get it chilled your way.
+              {activeTub.size} {activeTub.label} — choose your flavour and we will get it chilled your way.
             </p>
             <div className="order-scene__actions">
               <Link to="/coming-soon?from=WhatsApp%20ordering" className="btn btn--glow">
