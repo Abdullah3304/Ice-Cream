@@ -8,32 +8,32 @@ const milestones = [
 ];
 
 const gallery = [
-  { src: '/images/products/Lids/Malaice Belgian Chocolate Lid.webp', alt: 'Malaice Belgian Chocolate Lid', variant: 'lid' },
-  { src: '/images/products/Popsicles/salted caramel.webp', alt: 'Salted Caramel Popsicle', variant: 'label' },
-  { src: '/images/products/Lollies/strawberry.webp', alt: 'Malaice Strawberry ICE Lolly', variant: 'label' },
-  { src: '/images/products/Lids/Malaice Lotus Crumble Lid.webp', alt: 'Malaice Lotus Crumble Lid', variant: 'lid' },
+  { src: '/images/products/lids/malaice-belgian-chocolate-lid.webp', alt: 'Malaice Belgian Chocolate Lid', variant: 'lid' },
+  { src: '/images/products/popsicles/salted-caramel.webp', alt: 'Salted Caramel Popsicle', variant: 'label' },
+  { src: '/images/products/lollies/strawberry.webp', alt: 'Malaice Strawberry ICE Lolly', variant: 'label' },
+  { src: '/images/products/lids/malaice-lotus-crumble-lid.webp', alt: 'Malaice Lotus Crumble Lid', variant: 'lid' },
 ];
 
 const craftPillars = [
   {
     title: 'Pure dairy',
     text: 'Fresh cream and milk only. No vegetable oils. No fillers. The silky texture adults deserve starts with honest dairy.',
-    image: '/images/products/750ML Bar/Vanilla.webp',
+    image: '/images/products/750ml-bar/vanilla.webp',
   },
   {
     title: 'Real flavours',
     text: 'From nostalgic kulfa to Belgian chocolate — every recipe is built for depth, not shortcuts. Extraordinary takes time.',
-    image: '/images/products/750ML Bar/Chocolate.webp',
+    image: '/images/products/750ml-bar/chocolate.webp',
   },
   {
     title: 'Crafted daily',
     text: 'Batch by batch, we chase the same goal: ice cream that melts cleanly, tastes true, and feels like a small luxury.',
-    image: '/images/products/750ML Bar/Mango.webp',
+    image: '/images/products/750ml-bar/mango.webp',
   },
   {
     title: 'Made properly',
     text: 'If it is not made with care, it is not the real deal. Pastes, bases, and finishes are treated with the same respect as the scoop.',
-    image: '/images/products/Kulfi/badamii.webp',
+    image: '/images/products/kulfi/badamii.webp',
   },
 ];
 
