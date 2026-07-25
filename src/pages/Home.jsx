@@ -4,62 +4,23 @@ import { brand } from '../data/brand';
 import { showcaseFlavors } from '../data/products';
 import './Home.css';
 
-function ScoopStack() {
-  return (
-    <div className="scoop-stack" aria-hidden="true">
-      <div className="scoop scoop--3">
-        <div className="scoop__shine" />
-        <div className="scoop__drip scoop__drip--left" />
-        <div className="scoop__drip scoop__drip--right" />
-      </div>
-      <div className="scoop scoop--2">
-        <div className="scoop__shine" />
-      </div>
-      <div className="scoop scoop--1">
-        <div className="scoop__shine" />
-      </div>
-      <div className="cone">
-        <div className="cone__grid" />
-      </div>
-    </div>
-  );
-}
-
-const heroRingProducts = [
-  {
-    name: 'Praline',
-    image: '/images/products/750ml-bar/praline.webp',
-    className: 'hero__ring-item--1',
-  },
-  {
-    name: 'Mango',
-    image: '/images/products/750ml-bar/mango.webp',
-    className: 'hero__ring-item--2',
-  },
-  {
-    name: 'Chocolate',
-    image: '/images/products/750ml-bar/chocolate.webp',
-    className: 'hero__ring-item--3',
-  },
-];
-
 function HeroVisual() {
   return (
     <div className="hero__visual">
-      <div className="hero__product-ring" aria-hidden="true">
-        {heroRingProducts.map((product, index) => (
-          <img
-            key={product.name}
-            src={product.image}
-            alt={` ${product.name}`}
-            className={`hero__ring-item ${product.className}`}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            decoding="async"
-            fetchPriority={index === 0 ? 'low' : 'auto'}
-          />
-        ))}
+      <div className="hero__star" title="Our most-loved flavour">
+        <span className="hero__star-icon" aria-hidden="true">★</span>
+        <span className="hero__star-text">
+          <strong>Star flavour</strong>
+          Loved most by our fans
+        </span>
       </div>
-      <ScoopStack />
+      <img
+        className="hero__product"
+        src="/images/products/lids/malaice-classic-kulfa-lid.webp"
+        alt="Malaice Classic Kulfa dairy ice cream"
+        loading="eager"
+        decoding="async"
+      />
       <div className="hero__badge">
         <span>100%</span>
         <small>Dairy</small>
@@ -72,28 +33,28 @@ const highlights = [
   {
     num: '01',
     title: 'Highest standards',
-    text: 'Fresh cream and milk. No vegetable oils. No fillers. Just ingredients worthy of extraordinary ice cream.',
+    text: 'Fresh cream and milk. No vegetable oils. No fillers. Just ingredients worthy of extraordinary ice cream. Every batch is checked for taste and texture before it ever leaves our kitchen.',
     accent: 'var(--pink-deep)',
     image: '/images/products/750ml-bar/vanilla.webp',
   },
   {
     num: '02',
     title: '13+ extraordinary flavours',
-    text: 'From nostalgic kulfa to Belgian chocolate — every scoop is crafted for depth, not shortcuts.',
+    text: 'From nostalgic kulfa to Belgian chocolate — every scoop is crafted for depth, not shortcuts. Whether you crave classic comfort or something bold, there is a flavour made for the moment.',
     accent: 'var(--purple-deep)',
-    image: '/images/products/kulfi/badamii.webp',
+    image: '/images/products/Kulfi/badamii.webp',
   },
   {
     num: '03',
     title: 'Made properly',
-    text: 'Family 4.5 L · Party 9.4 L · 750 ml bars. Built for quiet nights and big celebrations alike.',
+    text: 'Family 4.5 L · Party 9.4 L · 750 ml bars. Built for quiet nights and big celebrations alike. Whatever the occasion, there is a size that fits the table and the moment.',
     accent: 'var(--blue-deep)',
     image: '/images/products/9.4-liter.webp',
   },
   {
     num: '04',
     title: 'Nationwide craft',
-    text: 'Found in 10,000+ stores. Chilled from factory to freezer — consistency is part of the luxury.',
+    text: 'Found in 10,000+ stores. Chilled from factory to freezer — consistency is part of the luxury. Wherever you are, the scoop you love tastes exactly the way it should.',
     accent: 'var(--pink-deep)',
     image: '/images/products/750ml-bar/mango.webp',
   },
@@ -130,6 +91,8 @@ export default function Home() {
 
   return (
     <>
+      <FlavorMarquee />
+
       <section className="hero">
         <div className="hero__backdrop" aria-hidden="true">
           <div className="hero__backdrop-gradient" />
@@ -149,7 +112,11 @@ export default function Home() {
             </h1>
             <p className="hero__lead">
               {brand.name} makes extraordinary dairy ice cream — silky, honest, and crafted
-              like no other. Pure cream. Real flavour. Zero shortcuts.
+              like no other. Pure cream. Real flavour. Zero shortcuts. Every batch begins
+              with fresh milk and cream, slow-churned in small batches so each scoop stays
+              rich, smooth, and full of character. From nostalgic kulfa to Belgian chocolate,
+              our flavours are built on real ingredients — never vegetable oils or fillers.
+              Just the good stuff, made properly, the way great ice cream should be.
             </p>
             <div className="hero__actions">
               <Link to="/products" className="btn btn--glow">Explore flavours</Link>
@@ -159,8 +126,6 @@ export default function Home() {
           <HeroVisual />
         </div>
       </section>
-
-      <FlavorMarquee />
 
       <section className="bento">
         <div className="container">

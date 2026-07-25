@@ -4,15 +4,15 @@
 
 :root {
   /* Pastels */
-  --pink: #F7DCE8;
-  --pink-deep: #E8B4C8;
+  --pink: #FCE9F2;
+  --pink-deep: #D8C4F0;
   --purple: #E6DDF5;
   --purple-deep: #C9B8E8;
   --blue: #D8ECF8;
   --blue-deep: #A8D4F0;
 
   /* Deep burgundy dark — user swatch */
-  --dark: #4B1228;
+  --dark: #8E3A56;
 
   --light: #FFF9FC;
   --bg-main: #FFF9FC;
@@ -29,7 +29,7 @@
   --line: #EDE4EC;
 
   --burgundy: var(--dark);
-  --burgundy-soft: #6B2A42;
+  --burgundy-soft: #A8496C;
   --gold: var(--purple-deep);
   --gold-soft: var(--blue-deep);
 
@@ -56,10 +56,10 @@
   --blush-deep: var(--dark);
   --champagne: var(--purple-deep);
 
-  --gradient-brand: linear-gradient(135deg, #4B1228 0%, #6B2A42 100%);
+  --gradient-brand: linear-gradient(135deg, #8E3A56 0%, #A8496C 100%);
   --gradient-warm: linear-gradient(135deg, var(--pink) 0%, var(--purple) 50%, var(--blue) 100%);
   --gradient-cool: linear-gradient(135deg, var(--blue), var(--purple));
-  --gradient-panel: linear-gradient(145deg, #4B1228 0%, #6B2A42 50%, #3A0E1F 100%);
+  --gradient-panel: linear-gradient(145deg, #8E3A56 0%, #A8496C 50%, #722743 100%);
   --gradient-hero: linear-gradient(160deg, #FFF9FC 0%, var(--pink) 35%, var(--purple) 70%, var(--blue) 100%);
 
   --shadow-xs: 0 2px 8px rgba(75, 18, 40, 0.05);

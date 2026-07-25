@@ -9,8 +9,8 @@ const milestones = [
 
 const gallery = [
   { src: '/images/products/lids/malaice-belgian-chocolate-lid.webp', alt: 'Malaice Belgian Chocolate Lid', variant: 'lid' },
-  { src: '/images/products/popsicles/salted-caramel.webp', alt: 'Salted Caramel Popsicle', variant: 'label' },
-  { src: '/images/products/lollies/strawberry.webp', alt: 'Malaice Strawberry ICE Lolly', variant: 'label' },
+  { src: '/images/products/Popsicles/salted-caramel.webp', alt: 'Salted Caramel Popsicle', variant: 'label' },
+  { src: '/images/products/Lollies/strawberry.webp', alt: 'Malaice Strawberry ICE Lolly', variant: 'label' },
   { src: '/images/products/lids/malaice-lotus-crumble-lid.webp', alt: 'Malaice Lotus Crumble Lid', variant: 'lid' },
 ];
 
@@ -33,7 +33,7 @@ const craftPillars = [
   {
     title: 'Made properly',
     text: 'If it is not made with care, it is not the real deal. Pastes, bases, and finishes are treated with the same respect as the scoop.',
-    image: '/images/products/kulfi/badamii.webp',
+    image: '/images/products/Kulfi/badamii.webp',
   },
 ];
 

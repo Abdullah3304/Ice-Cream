@@ -64,13 +64,13 @@ export const productCategories = [
     tag: 'Popsicles',
     color: '#FF8A5B',
     products: [
-      { name: 'Malaice Strawberry', image: '/images/products/popsicles/strawberry.webp' },
-      { name: 'Malaice Mango', image: '/images/products/popsicles/mango.webp' },
-      { name: 'Malaice Vanilla', image: '/images/products/popsicles/vanilla.webp' },
-      { name: 'Malaice Chocolate', image: '/images/products/popsicles/chocolate.webp' },
-      { name: 'Malaice Salted Caramel', image: '/images/products/popsicles/salted-caramel.webp' },
-      { name: 'Malaice Coconut', image: '/images/products/popsicles/coconut.webp' },
-      { name: 'Malaice Chocobar', image: '/images/products/popsicles/chocobar.webp' },
+      { name: 'Malaice Strawberry', image: '/images/products/Popsicles/strawberry.webp' },
+      { name: 'Malaice Mango', image: '/images/products/Popsicles/mango.webp' },
+      { name: 'Malaice Vanilla', image: '/images/products/Popsicles/vanilla.webp' },
+      { name: 'Malaice Chocolate', image: '/images/products/Popsicles/chocolate.webp' },
+      { name: 'Malaice Salted Caramel', image: '/images/products/Popsicles/salted-caramel.webp' },
+      { name: 'Malaice Coconut', image: '/images/products/Popsicles/coconut.webp' },
+      { name: 'Malaice Chocobar', image: '/images/products/Popsicles/chocobar.webp' },
     ],
   },
   {
@@ -78,10 +78,10 @@ export const productCategories = [
     tag: 'Lollies',
     color: '#3BA7E8',
     products: [
-      { name: 'Malaice Orange ICE Lolly', image: '/images/products/lollies/orange.webp' },
-      { name: 'Malaice Apple ICE Lolly', image: '/images/products/lollies/apple.webp' },
-      { name: 'Malaice PineApple ICE Lolly', image: '/images/products/lollies/pineapple.webp' },
-      { name: 'Malaice Strawberry ICE Lolly', image: '/images/products/lollies/strawberry.webp' },
+      { name: 'Malaice Orange ICE Lolly', image: '/images/products/Lollies/orange.webp' },
+      { name: 'Malaice Apple ICE Lolly', image: '/images/products/Lollies/apple.webp' },
+      { name: 'Malaice PineApple ICE Lolly', image: '/images/products/Lollies/pineapple.webp' },
+      { name: 'Malaice Strawberry ICE Lolly', image: '/images/products/Lollies/strawberry.webp' },
     ],
   },
 
@@ -90,16 +90,16 @@ export const productCategories = [
     tag: 'Kulfi',
     color: '#3BA7E8',
     products: [
-      { name: 'Malaice Badami Kulfi', image: '/images/products/kulfi/badamii.webp' },
-      { name: 'Malaice Khoya Kulfi', image: '/images/products/kulfi/khoya-kulfi.webp' },
-      { name: 'Malaice Pistachio Kulfi', image: '/images/products/kulfi/pistachio.webp' },
+      { name: 'Malaice Badami Kulfi', image: '/images/products/Kulfi/badamii.webp' },
+      { name: 'Malaice Khoya Kulfi', image: '/images/products/Kulfi/khoya-kulfi.webp' },
+      { name: 'Malaice Pistachio Kulfi', image: '/images/products/Kulfi/pistachio.webp' },
     ],
   },
 ];
 
 export const showcaseFlavors = [
   { name: 'Praline', image: '/images/products/750ml-bar/praline.webp', className: 'float-card--1' },
-  { name: 'Kulfa', image: '/images/products/kulfi/badamii.webp', className: 'float-card--2' },
+  { name: 'Kulfa', image: '/images/products/750ml-bar/classic-kulfa.webp', className: 'float-card--2' },
   { name: 'Mango', image: '/images/products/750ml-bar/mango.webp', className: 'float-card--3' },
   { name: 'Chocolate', image: '/images/products/750ml-bar/chocolate.webp', className: 'float-card--4' },
 ];

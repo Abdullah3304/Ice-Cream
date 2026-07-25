@@ -87,7 +87,7 @@
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
   color: var(--dark) !important;
-  background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue)) !important;
+  background: #FFFFFF !important;
   border-radius: var(--radius-pill) !important;
   white-space: nowrap;
   transition: transform 0.3s var(--ease-out), filter 0.3s !important;

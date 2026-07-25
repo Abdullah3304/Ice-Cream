@@ -7,11 +7,10 @@ import './Flavors.css';
 const ALL_CATEGORIES = 'all';
 const PAGE_SIZE = 8;
 
-const defaultCategory =
-  productCategories.find((category) => category.type !== 'packs')?.name ?? ALL_CATEGORIES;
+const defaultCategory = ALL_CATEGORIES;
 
 const categoryOptions = [
-  { value: ALL_CATEGORIES, label: 'All categories', color: 'var(--gradient-brand)' },
+  { value: ALL_CATEGORIES, label: 'All Categories', color: 'var(--gradient-brand)' },
   ...productCategories.map((category) => ({
     value: category.name,
     label: category.name,

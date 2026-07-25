@@ -197,9 +197,6 @@ export default function Order() {
             <Link to="/coming-soon?from=WhatsApp%20ordering" className="btn btn--glow">
               Confirm on WhatsApp
             </Link>
-            <a className="btn btn--ghost" href={`tel:${contactInfo.phone.replace(/[^\d+]/g, '')}`}>
-              Call the desk
-            </a>
           </div>
         </div>
       </section>
