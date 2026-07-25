@@ -1,33 +1,37 @@
-/* Contact page — all CSS used on this page */
+/* Contact — French pâtisserie */
 
 .container {
-  width: min(var(--max-w), 100% - 40px);
+  width: min(var(--max-w), 100% - 44px);
   margin-inline: auto;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-size: 0.78rem;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text-faint);
-  margin-bottom: 1.25rem;
+  color: var(--dark);
+  margin-bottom: 1.2rem;
 }
 
 .eyebrow__line {
-  width: 32px;
-  height: 1px;
-  background: var(--gradient-brand);
+  width: 24px;
+  height: 1.5px;
+  background: var(--dark);
+  border-radius: 2px;
 }
 
 .text-gradient {
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--dark);
+  font-style: italic;
+  font-weight: 500;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
 }
 
 .btn {
@@ -36,60 +40,83 @@
   justify-content: center;
   padding: 14px 28px;
   font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
+  letter-spacing: 0.02em;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s, background 0.35s;
 }
 
 .btn--glow {
-  color: var(--bg-deep);
-  background: var(--gradient-brand);
-  position: relative;
-  overflow: hidden;
+  color: #FFFFFF;
+  background: var(--dark);
+  box-shadow: 0 10px 22px rgba(75, 18, 40, 0.25);
 }
 
 .btn--glow:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(192, 132, 252, 0.4);
+  transform: translateY(-3px);
+  background: var(--dark);
+  box-shadow: 0 14px 30px rgba(75, 18, 40, 0.32);
 }
 
 .btn--full { width: 100%; }
 
 .page-hero {
   position: relative;
-  padding: 60px 0 80px;
+  padding: 60px 0 72px;
   text-align: center;
   overflow: hidden;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 0%, rgba(75, 18, 40, 0.14), transparent 60%),
+    linear-gradient(180deg, #FFF9FC, #FFF9FC);
 }
 
-.contact-section { padding-bottom: 100px; }
+.page-hero--contact {
+  background:
+    radial-gradient(ellipse 40% 35% at 20% 10%, rgba(75, 18, 40, 0.12), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 80% 15%, rgba(75, 18, 40, 0.1), transparent 55%),
+    linear-gradient(180deg, #FFF9FC, #FFF9FC);
+}
+
+.contact-section {
+  padding-bottom: 92px;
+  background: var(--bg-main);
+}
 
 .contact-section__grid {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
-  gap: 24px;
+  gap: 22px;
 }
 
 .contact-card {
-  padding: 40px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
+  padding: 36px;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.35s var(--ease-out);
+}
+
+.contact-card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.contact-card--info {
+  background: linear-gradient(160deg, #FFFFFF 0%, var(--bg-blush) 100%);
 }
 
 .contact-list {
   list-style: none;
   padding: 0;
-  margin: 24px 0 0;
+  margin: 22px 0 0;
 }
 
 .contact-list li {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border-glass);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -98,78 +125,82 @@
 .contact-list li:last-child { border-bottom: none; }
 
 .contact-list__label {
-  font-size: 0.72rem;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--ink-muted);
 }
 
-.glass-form__field { margin-bottom: 20px; }
+.glass-form__field { margin-bottom: 18px; }
 
 .glass-form label {
   display: block;
-  font-size: 0.78rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-faint);
-  margin-bottom: 8px;
+  color: var(--ink-muted);
+  margin-bottom: 7px;
 }
 
 .glass-form input,
 .glass-form textarea {
   width: 100%;
-  padding: 14px 18px;
+  padding: 13px 16px;
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-glass);
+  font-size: 0.92rem;
+  color: var(--ink);
+  background: var(--bg-alt);
+  border: 1.5px solid var(--line);
   border-radius: var(--radius-sm);
-  transition: border-color 0.25s, box-shadow 0.25s;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .glass-form input::placeholder,
-.glass-form textarea::placeholder { color: var(--text-faint); }
+.glass-form textarea::placeholder { color: var(--ink-muted); }
 
 .glass-form input:focus,
 .glass-form textarea:focus {
   outline: none;
-  border-color: rgba(192, 132, 252, 0.5);
-  box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.12);
+  background: #FFFFFF;
+  border-color: rgba(75, 18, 40, 0.55);
+  box-shadow: 0 0 0 3px rgba(75, 18, 40, 0.12);
 }
 
 .glass-form textarea {
-  min-height: 130px;
+  min-height: 120px;
   resize: vertical;
 }
 
 .form-success-panel {
   text-align: center;
-  padding: 40px 20px;
+  padding: 36px 18px;
 }
 
 .form-success-panel__icon {
   display: inline-grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: var(--gradient-brand);
-  color: var(--bg-deep);
-  font-size: 1.4rem;
-  margin-bottom: 20px;
+  background: var(--dark);
+  color: #FFFFFF;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-soft);
 }
 
 .form-error {
-  margin: 0 0 16px;
-  padding: 12px 14px;
+  margin: 0 0 14px;
+  padding: 11px 13px;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 107, 157, 0.35);
-  background: rgba(255, 107, 157, 0.08);
-  color: var(--flavor-strawberry);
-  font-size: 0.9rem;
+  border: 1.5px solid rgba(75, 18, 40, 0.45);
+  background: rgba(75, 18, 40, 0.12);
+  color: var(--dark);
+  font-size: 0.88rem;
 }
 
 .form-honey {
@@ -189,10 +220,23 @@
 }
 
 .glass-form button:disabled {
-  opacity: 0.65;
+  opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
 }
 
 @media (max-width: 960px) {
+  .container { width: min(var(--max-w), 100% - 32px); }
   .contact-section__grid { grid-template-columns: 1fr; }
+  .contact-card { padding: 28px 22px; }
+  .page-hero { padding: 48px 0 60px; }
 }
+
+
+.page-hero--contact {
+  background: var(--dark) !important;
+}
+.page-hero--contact h1,
+.page-hero--contact .text-gradient { color: var(--light) !important; }
+.page-hero--contact .eyebrow { color: rgba(255, 249, 252, 0.65) !important; justify-content: center; }
+.page-hero--contact .eyebrow__line { background: var(--light) !important; }

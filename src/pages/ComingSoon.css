@@ -1,33 +1,37 @@
-/* Coming Soon page */
+/* Coming Soon — French pâtisserie */
 
 .container {
-  width: min(var(--max-w), 100% - 40px);
+  width: min(var(--max-w), 100% - 44px);
   margin-inline: auto;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-size: 0.78rem;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text-faint);
-  margin-bottom: 1.25rem;
+  color: var(--dark);
+  margin-bottom: 1.2rem;
 }
 
 .eyebrow__line {
-  width: 32px;
-  height: 1px;
-  background: var(--gradient-brand);
+  width: 24px;
+  height: 1.5px;
+  background: var(--dark);
+  border-radius: 2px;
 }
 
 .text-gradient {
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--dark);
+  font-style: italic;
+  font-weight: 500;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
 }
 
 .btn {
@@ -36,56 +40,85 @@
   justify-content: center;
   padding: 14px 28px;
   font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
   border: none;
   cursor: pointer;
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
+  letter-spacing: 0.02em;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s, background 0.35s, border-color 0.35s;
 }
 
 .btn--glow {
-  color: var(--bg-deep);
-  background: var(--gradient-brand);
+  color: #FFFFFF;
+  background: var(--dark);
+  box-shadow: 0 10px 22px rgba(75, 18, 40, 0.25);
 }
 
 .btn--glow:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(192, 132, 252, 0.4);
+  transform: translateY(-3px);
+  background: var(--dark);
+  box-shadow: 0 14px 30px rgba(75, 18, 40, 0.32);
 }
 
 .btn--ghost {
-  color: var(--text-primary);
-  background: transparent;
-  border: 1px solid var(--border-glass);
+  color: var(--dark);
+  background: #FFFFFF;
+  border: 1.5px solid var(--dark);
+  padding: 13px 26px;
 }
 
 .btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.06);
-  transform: translateY(-2px);
+  background: var(--bg-blush);
+  border-color: var(--dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(75, 18, 40, 0.12);
 }
 
 .coming-soon {
-  min-height: min(70vh, 640px);
+  min-height: min(68vh, 620px);
   display: flex;
   align-items: center;
-  padding: 80px 0 100px;
+  padding: 80px 0 92px;
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 40%, rgba(75, 18, 40, 0.12), transparent 65%),
+    radial-gradient(ellipse 35% 30% at 80% 70%, rgba(75, 18, 40, 0.1), transparent 55%);
 }
 
 .coming-soon__inner {
   text-align: center;
-  max-width: 640px;
+  max-width: 600px;
+  padding: 48px 36px;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
 }
 
 .coming-soon__lead {
-  max-width: 420px;
-  margin: 0 auto 2rem;
-  font-size: 1.1rem;
+  max-width: 400px;
+  margin: 0 auto 1.85rem;
+  font-size: 1.02rem;
 }
 
 .coming-soon__actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 11px;
+}
+
+@media (max-width: 768px) {
+  .container { width: min(var(--max-w), 100% - 32px); }
+  .coming-soon { padding: 60px 0 80px; }
+  .coming-soon__inner { padding: 32px 22px; }
+}
+
+
+.coming-soon {
+  background: var(--dark) !important;
+}
+.coming-soon__inner {
+  background: var(--light) !important;
+  border-color: transparent !important;
 }

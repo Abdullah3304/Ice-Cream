@@ -5,9 +5,12 @@ import { productCategories } from '../data/products';
 import './Flavors.css';
 
 const ALL_CATEGORIES = 'all';
+const PAGE_SIZE = 8;
+
+const defaultCategory = ALL_CATEGORIES;
 
 const categoryOptions = [
-  { value: ALL_CATEGORIES, label: 'All categories', color: 'var(--gradient-brand)' },
+  { value: ALL_CATEGORIES, label: 'All Categories', color: 'var(--gradient-brand)' },
   ...productCategories.map((category) => ({
     value: category.name,
     label: category.name,
@@ -111,6 +114,34 @@ function FamilyPackShowcase({ packs, color }) {
   );
 }
 
+function ProductPagination({ page, totalPages, onChange }) {
+  if (totalPages <= 1) return null;
+
+  return (
+    <nav className="flavor-pagination" aria-label="Product pages">
+      <button
+        type="button"
+        className="flavor-pagination__btn"
+        disabled={page <= 1}
+        onClick={() => onChange(page - 1)}
+      >
+        Previous
+      </button>
+      <span className="flavor-pagination__status">
+        Page {page} of {totalPages}
+      </span>
+      <button
+        type="button"
+        className="flavor-pagination__btn"
+        disabled={page >= totalPages}
+        onClick={() => onChange(page + 1)}
+      >
+        Next
+      </button>
+    </nav>
+  );
+}
+
 function sectionClass(name) {
   if (name === 'Popsicles') return ' flavor-section--popsicles';
   if (name === '750ML Bar Pack') return ' flavor-section--bars';
@@ -130,7 +161,8 @@ function gridClass(name) {
 }
 
 export default function Products() {
-  const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES);
+  const [selectedCategory, setSelectedCategory] = useState(defaultCategory);
+  const [pageByCategory, setPageByCategory] = useState({});
 
   const visibleCategories = useMemo(() => {
     if (selectedCategory === ALL_CATEGORIES) return productCategories;
@@ -140,6 +172,18 @@ export default function Products() {
   useEffect(() => {
     document.title = `Products — ${brand.name} ${brand.tagline}`;
   }, []);
+
+  useEffect(() => {
+    setPageByCategory({});
+  }, [selectedCategory]);
+
+  function getPage(categoryName) {
+    return pageByCategory[categoryName] ?? 1;
+  }
+
+  function setPage(categoryName, page) {
+    setPageByCategory((prev) => ({ ...prev, [categoryName]: page }));
+  }
 
   return (
     <>
@@ -153,13 +197,11 @@ export default function Products() {
             The collection
           </p>
           <h1>
-            Pick your
-            <span className="text-gradient"> poison</span>
-            <br />
-            <small className="hero-sub">(the delicious kind)</small>
+            Extraordinary
+            <span className="text-gradient"> flavours</span>
           </h1>
           <p className="page-hero__lead">
-            Tubs, bars, cones, and sticks — every format, every mood, every craving.
+            Tubs, bars, cones, and sticks — crafted from pure dairy for every mood and craving.
           </p>
         </div>
       </section>
@@ -173,60 +215,93 @@ export default function Products() {
             <CategoryDropdown value={selectedCategory} onChange={setSelectedCategory} />
           </div>
 
-          {visibleCategories.map((category, catIndex) => (
-            <div className={`flavor-section${sectionClass(category.name)}`} key={category.name}>
-              <div className="flavor-section__head">
-                <span className="flavor-section__swatch" style={{ background: category.color }} />
-                <div>
-                  <h2>{category.name}</h2>
-                  <p>
-                    {category.type === 'packs'
-                      ? 'Party-size tubs for every celebration'
-                      : `${category.products.length} flavors`}
-                  </p>
+          {visibleCategories.map((category, catIndex) => {
+            const products = category.products ?? [];
+            const page = getPage(category.name);
+            const totalPages = Math.max(1, Math.ceil(products.length / PAGE_SIZE));
+            const safePage = Math.min(page, totalPages);
+            const pageProducts = products.slice(
+              (safePage - 1) * PAGE_SIZE,
+              safePage * PAGE_SIZE,
+            );
+
+            return (
+              <div
+                className={`flavor-section${sectionClass(category.name)}`}
+                key={category.name}
+                id={`flavor-section-${category.name.replace(/\s+/g, '-').toLowerCase()}`}
+              >
+                <div className="flavor-section__head">
+                  <span className="flavor-section__swatch" style={{ background: category.color }} />
+                  <div>
+                    <h2>{category.name}</h2>
+                    <p>
+                      {category.type === 'packs'
+                        ? 'Party-size tubs for every celebration'
+                        : totalPages > 1
+                          ? `${category.products.length} flavors · showing ${PAGE_SIZE} per page`
+                          : `${category.products.length} flavors`}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              {category.type === 'packs' ? (
-                <FamilyPackShowcase packs={category.packs} color={category.color} />
-              ) : (
-                <div className={`flavor-grid${gridClass(category.name)}`}>
-                  {category.products.map((product, i) => (
-                    <article
-                      className="flavor-card"
-                      key={product.name}
-                      style={{
-                        '--delay': `${(i + catIndex) * 0.05}s`,
-                        '--flavor-color': category.color,
+                {category.type === 'packs' ? (
+                  <FamilyPackShowcase packs={category.packs} color={category.color} />
+                ) : (
+                  <>
+                    <div className={`flavor-grid${gridClass(category.name)}`}>
+                      {pageProducts.map((product, i) => (
+                        <article
+                          className="flavor-card"
+                          key={product.name}
+                          style={{
+                            '--delay': `${(i + catIndex) * 0.05}s`,
+                            '--flavor-color': category.color,
+                          }}
+                        >
+                          <div className="flavor-card__img-wrap">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="flavor-card__img"
+                              loading="lazy"
+                              decoding="async"
+                              width={360}
+                              height={360}
+                            />
+                          </div>
+                          <div className="flavor-card__body">
+                            <span className="flavor-card__tag">{category.tag}</span>
+                            <h3>{product.name}</h3>
+                            <p>Pure dairy · Small batch</p>
+                          </div>
+                          <div className="flavor-card__orb" />
+                        </article>
+                      ))}
+                    </div>
+                    <ProductPagination
+                      page={safePage}
+                      totalPages={totalPages}
+                      onChange={(nextPage) => {
+                        setPage(category.name, nextPage);
+                        document
+                          .getElementById(
+                            `flavor-section-${category.name.replace(/\s+/g, '-').toLowerCase()}`,
+                          )
+                          ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                       }}
-                    >
-                      <div className="flavor-card__img-wrap">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="flavor-card__img"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-                      <div className="flavor-card__body">
-                        <span className="flavor-card__tag">{category.tag}</span>
-                        <h3>{product.name}</h3>
-                        <p>Pure dairy · Small batch</p>
-                      </div>
-                      <div className="flavor-card__orb" />
-                    </article>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+                    />
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
       </section>
 
       <section className="cta-panel cta-panel--compact">
         <div className="container cta-panel__inner">
-          <h2>Can&apos;t decide? Try them all.</h2>
-          <Link to="/contact" className="btn btn--light">Ask us for recommendations</Link>
+          <h2>Need a recommendation?</h2>
+          <Link to="/contact" className="btn btn--light">Ask us</Link>
         </div>
       </section>
     </>

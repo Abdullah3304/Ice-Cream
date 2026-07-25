@@ -16,14 +16,14 @@ export default function ComingSoon() {
       <div className="container coming-soon__inner">
         <p className="eyebrow">
           <span className="eyebrow__line" />
-          Hang tight
+          Almost there
         </p>
         <h1>
-          Functionality
-          <span className="text-gradient"> coming soon</span>
+          Coming
+          <span className="text-gradient"> soon</span>
         </h1>
         <p className="coming-soon__lead">
-          {feature} isn&apos;t live yet — we&apos;re chilling the details. Check back soon.
+          {feature} is not live yet — we are refining every detail. Check back soon.
         </p>
         <div className="coming-soon__actions">
           <Link to="/" className="btn btn--glow">Back to home</Link>
